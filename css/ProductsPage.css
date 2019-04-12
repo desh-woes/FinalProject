@@ -1,30 +1,3 @@
-/*Styling for the product banner on the products page*/
-.productBanner{
-    width: 90%;
-    display: flex;
-    font-family: 'PT Sans', serif;
-    margin: 0 auto 15px;
-}
-
-/*Styling for the title per page*/
-.pageTitle{
-    width: 300px;
-    height: 220px;
-    padding: 0 10px;
-    background-color: #2e2e2e;
-    font-size: 20px;
-    color: #ffffff;
-    margin-right: 40px;
-}
-
-/*Styling for the banner image per page*/
-.pageImg img{
-    width: 842px;
-    height: 220px;
-    object-fit: cover;
-    margin: 0 auto;
-}
-
 /*Styling for the available products page*/
 .ourProducts{
     width: 85%;
@@ -165,3 +138,19 @@
 
 /* Styling for the navidation bar at the buttom of the page*/
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+/*Styling for the Add products button*/
+#addButton button{
+    width: 347px;
+    height: 44px;
+    background-color: #1c1c1c;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/*Styling for the Add products button*/
+#addButton{
+    width: fit-content;
+    margin: 0 auto;
+}

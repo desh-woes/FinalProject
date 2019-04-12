@@ -1,65 +1,39 @@
-* {
-  font-family: 'PT Sans', serif;
-}
-
-*, *::before, *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.roomBanner {
-  width: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-family: 'PT Sans', serif;
-  margin: 0 auto 15px;
-}
-
-.roomBanner .pageTitle {
-  width: 300px;
-  height: 220px;
-  padding: 0 10px;
-  background-color: #2e2e2e;
-  color: #ffffff;
-  margin-right: 40px;
-}
-
-.roomBanner .pageTitle h1 {
-  font-family: 'PT Sans', serif;
-  font-size: 2vw;
-}
-
-/*Styling for the title per page*/
-/*Styling for the banner image per page*/
-.pageImg img {
-  width: 842px;
-  height: 220px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin: 0 auto;
-}
-
+/*Styling for the container holding the rooms*/
 .rooms {
   width: 80vw;
   margin: auto;
 }
 
-.rooms .Searching {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  /*Styling for the date picker*/
-  /*Styling for the date picker icon*/
+/*Styling for the room title*/
+.rooms h1{
+  font-size: 32px;
+  color: #666666;
+  font-weight: 400;
+  margin: 5px;
 }
 
+/*Styling for the searching form*/
+.rooms .Searching {
+  display: flex;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+/*Styling for the input bar in the searching box*/
+.Searching input{
+  width: 174px;
+  height: 33px;
+  padding: 0px 10px;
+  border: 1px solid #666666;
+  background-color: #ffffff;
+  font-size: 13px;
+  color: #000000;
+  font-weight: 400;
+  margin: 0 auto;
+}
+
+/*Styling for the searching form*/
 .rooms .Searching #SearchingForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -144,4 +118,3 @@
   background-color: #1f1f1f;
   font-size: 1.4vw;
 }
-/*# sourceMappingURL=rooms.css.map */

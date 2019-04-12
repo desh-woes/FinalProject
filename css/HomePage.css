@@ -6,12 +6,6 @@
     color: black;
 }
 
-/*Styling for the current page*/
-#current{
-    color: black;
-    font-weight: bold;
-}
-
 /*Styling for the home page banner Image*/
 .HomePageBanner img{
     height: 650px;

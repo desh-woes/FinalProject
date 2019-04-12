@@ -1,0 +1,86 @@
+* {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2vw;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.rooms {
+  width: 80vw;
+  margin: auto;
+}
+
+.rooms #search {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding-bottom: 1vw;
+}
+
+.rooms #search button {
+  padding: 0.5vw 4vw;
+  color: white;
+  background-color: black;
+  font-size: 1.4vw;
+}
+
+.rooms .category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1vw 0;
+}
+
+.rooms .category .image img {
+  width: 25vw;
+  height: 15vw;
+}
+
+.rooms .category .description {
+  padding-left: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #666666;
+}
+
+.rooms .category .description .text h1 {
+  color: #454444;
+  font-weight: 400;
+  font-size: 2.5vw;
+}
+
+.rooms .category .description .text p {
+  font-size: 1.2vw;
+  font-weight: 400;
+}
+
+.rooms .category .description .text i {
+  padding: 0 0.5vw;
+}
+
+.rooms .category .description .book {
+  margin: auto;
+  margin-left: 5vw;
+}
+
+.rooms .category .description .book p {
+  text-align: center;
+}
+
+.rooms .category .description .book .money {
+  font-weight: 700;
+  font-size: 1.5vw;
+}
+
+.rooms .category .description .book button {
+  padding: 0.5vw 4vw;
+  color: white;
+  background-color: black;
+  font-size: 1.4vw;
+}
+/*# sourceMappingURL=rooms.css.map */

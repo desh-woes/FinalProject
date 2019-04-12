@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Add Products</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
-    <link rel="stylesheet" type="text/css" href="css/AddProducts.css">
+	<meta charset="UTF-8">
+	<title>Add Products</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+		type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+	<link rel="stylesheet" type="text/css" href="css/AddProduct.css">
 	<link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
 </head>
+
 <body>
 	<!--Section containing the header, logo and Navigation links-->
 	<header>
@@ -49,44 +52,52 @@
 	<section class="ourProducts">
 		<h1>Our Products</h1>
 		<hr>
-		<p>At the Bourgeoning, we give a chance for our clients to sell their goods on our platform. Do you have foreign merchandise? are you willing to sell them? leverage our platform!</p>
+		<p>At the Bourgeoning, we give a chance for our clients to sell their goods on our platform. Do you have foreign
+			merchandise? are you willing to sell them? leverage our platform!</p>
 		<hr>
 
-		<div>
-			<div>
+		<div id="addBlock">
+			<div id="image">
 				<img src="">
 				<h1>Upload Product Image</h1>
 			</div>
-
-			<div>
-				<h3>Product Info</h3>
-
+			
+			<div id="info-form">
+					<div id="info">
+							<h3>Product Info</h3>
+					</div>
 				<form>
-					<div>
-                        <label>
-                            <input type="text" name="ProductName" placeholder="Enter Your Product name">
-                        </label>
+					<div id="left">
+						
+						<label>
+							<input type="text" name="ProductName" placeholder="Enter Your Product name">
+						</label>
+						<textarea placeholder="Write a brief description of your product here"></textarea>
 
-                        <label for="dropdown">
-                            <select name="categories" id="dropdown">
-                                <option value="">Select an item from the list</option>
-                                <option value="Clothing">Clothing</option>
-                                <option value="Food Items">Food Items</option>
-                                <option value="Art Work">Art Work</option>
-                            </select>
-                        </label>
-                    </div>
+					</div>
 
-					<div>
-                        <textarea placeholder="Write a brief description of your product here"></textarea>
-						<div>
+					<div id="right">
+							<label for="dropdown">
+									<select name="categories" id="dropdown">
+										<option value="">Select an item from the list</option>
+										<option value="Clothing">Clothing</option>
+										<option value="Food Items">Food Items</option>
+										<option value="Art Work">Art Work</option>
+									</select>
+								</label>
+						
+
 							<input type="text" name="Price" placeholder="Enter the price of the product">
-                            <input type="checkbox" name="Legal">By checking here you agree to our <a href="#">terms and conditions.</a> Make sure your read thorugh them before signing this.
-						</div>
+				
+									<input type="checkbox" name="Legal">
+									By checking here you agree to our <a href="#">terms and
+										conditions.</a> Make sure your read thorugh them before signing this.
+						
 					</div>
 				</form>
 				<button type="submit">Save</button>
 			</div>
+		</div>
 		</div>
 	</section>
 
@@ -97,9 +108,12 @@
 			<div>
 				<h4>24 KG 414 St, Kigali<br>Kigali Heights, Left wing | <b>+250780609528</b></h4>
 				<div class="socialMedia">
-					<a href="https://twitter.com/home" target="_blank"><img class="icon" src="images/twitter.png" alt="twitter"></a>
-					<a href="https://www.facebook.com/" target="_blank"><img class="icon" src="images/facebook.png" alt="facebook"></a>
-					<a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon" src="images/instagram.png" alt="Instagram"></a>
+					<a href="https://twitter.com/home" target="_blank"><img class="icon" src="images/twitter.png"
+							alt="twitter"></a>
+					<a href="https://www.facebook.com/" target="_blank"><img class="icon" src="images/facebook.png"
+							alt="facebook"></a>
+					<a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon"
+							src="images/instagram.png" alt="Instagram"></a>
 					<button>Contact Us</button>
 				</div>
 				<h3>&#0169 2023 by the group 3</h3>
@@ -117,4 +131,5 @@
 		</div>
 	</footer>
 </body>
+
 </html>

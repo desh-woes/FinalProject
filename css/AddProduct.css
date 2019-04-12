@@ -1,0 +1,60 @@
+#addBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#addBlock #image {
+  width: 30vw;
+  margin: 0 2.5vw 0 0;
+}
+
+#addBlock #info-form {
+  height: 25vw;
+  width: 60vw;
+}
+
+#addBlock #info-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#addBlock #info-form form #left {
+  margin: 1vw 0;
+}
+
+#addBlock #info-form form #right {
+  margin: 1vw 0;
+  width: 40vw;
+}
+
+#addBlock #info-form form #right select {
+  padding: 0.5vw  9.3vw 0.5vw 0;
+  background-color: white;
+  border: 1px solid black;
+  color: #858585;
+  font-size: 1.2vw;
+  margin-bottom: 2vw;
+}
+
+#addBlock #info-form form #right input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+}
+
+#addBlock #info-form form input[type] {
+  width: 25vw;
+  font-size: 1.2vw;
+  margin: 0 2vw 1vw 0;
+  padding: 0.5vw 0;
+  border: 1px solid black;
+}
+
+#addBlock #info-form form textarea {
+  width: 25vw;
+  margin: 1vw 5vw 1vw 0;
+  border: 1px solid black;
+  height: 5vw;
+}
+/*# sourceMappingURL=AddProduct.css.map */

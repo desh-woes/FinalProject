@@ -1,6 +1,6 @@
 *{    
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1.2vw;
+    font-family: 'PT Sans', serif;
+    // font-size: 1.2vw;
     // border: 1px solid black;
 }
 *, *::before, *::after { box-sizing: border-box}
@@ -10,18 +10,24 @@
     display: flex;
     font-family: 'PT Sans', serif;
     margin: 0 auto 15px;
+
+    .pageTitle{
+            width: 300px;
+        height: 220px;
+        padding: 0 10px;
+        background-color: #2e2e2e;
+        color: #ffffff;
+        margin-right: 40px;
+        h1{
+            font-family: 'PT Sans', serif;
+            font-size: 2vw;
+        }
+
+    }
 }
 
 /*Styling for the title per page*/
-.pageTitle{
-    width: 300px;
-    height: 220px;
-    padding: 0 10px;
-    background-color: #2e2e2e;
-    font-size: 20px;
-    color: #ffffff;
-    margin-right: 40px;
-}
+
 
 /*Styling for the banner image per page*/
 .pageImg img{
@@ -33,19 +39,43 @@
 .rooms{
     width: 80vw;
     margin: auto;
+
     #title{
 
     }
-    #search{
-        width: fit-content;
+
+    .Searching{
+        display: flex;
         margin: auto;
-        padding-bottom: 1vw;
-        button{
-            padding:  0.5vw 4vw;
-            color: white;
-            background-color: black;
-            font-size: 1.4vw;
+        width: fit-content;
+        #SearchingForm{
+            display: flex;
         }
+        input{
+            height: 2.5vw;;
+        }
+        /*Styling for the date picker*/
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+/*Styling for the date picker icon*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    background: url(https://img.icons8.com/metro/26/000000/calendar-11.png)no-repeat;
+    width: 20px;
+    height: 30px;
+    border-width: thin;
+    position: relative;
+    transform: translateY(20%);
+}
+button{
+    padding:  0.25vw 4vw;
+    color: white;
+    background-color: #1f1f1f;
+    font-size: 1.4vw;
+}
+        
     }
     .category{
         display: flex;
@@ -90,7 +120,7 @@
                 button{
                     padding:  0.5vw 4vw;
                     color: white;
-                    background-color: black;
+                    background-color: #1f1f1f;
                     font-size: 1.4vw;
                 }
             }

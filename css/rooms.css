@@ -8,6 +8,35 @@
           box-sizing: border-box;
 }
 
+.roomBanner {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'PT Sans', serif;
+  margin: 0 auto 15px;
+}
+
+/*Styling for the title per page*/
+.pageTitle {
+  width: 300px;
+  height: 220px;
+  padding: 0 10px;
+  background-color: #2e2e2e;
+  font-size: 20px;
+  color: #ffffff;
+  margin-right: 40px;
+}
+
+/*Styling for the banner image per page*/
+.pageImg img {
+  width: 842px;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 auto;
+}
+
 .rooms {
   width: 80vw;
   margin: auto;

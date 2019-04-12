@@ -1,0 +1,99 @@
+*{    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.2vw;
+    // border: 1px solid black;
+}
+*, *::before, *::after { box-sizing: border-box}
+
+.roomBanner{
+    width: 90%;
+    display: flex;
+    font-family: 'PT Sans', serif;
+    margin: 0 auto 15px;
+}
+
+/*Styling for the title per page*/
+.pageTitle{
+    width: 300px;
+    height: 220px;
+    padding: 0 10px;
+    background-color: #2e2e2e;
+    font-size: 20px;
+    color: #ffffff;
+    margin-right: 40px;
+}
+
+/*Styling for the banner image per page*/
+.pageImg img{
+    width: 842px;
+    height: 220px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+.rooms{
+    width: 80vw;
+    margin: auto;
+    #title{
+
+    }
+    #search{
+        width: fit-content;
+        margin: auto;
+        padding-bottom: 1vw;
+        button{
+            padding:  0.5vw 4vw;
+            color: white;
+            background-color: black;
+            font-size: 1.4vw;
+        }
+    }
+    .category{
+        display: flex;
+        padding: 1vw 0;
+        
+        .image{
+            img{
+                width: 25vw;
+                height: 15vw;;
+            }
+
+        }
+        .description{
+            padding-left: 5vw;
+            display: flex;
+            color: #666666;
+            
+            .text{
+                h1{
+                    color: #454444;
+                    font-weight: 400;
+                    font-size: 2.5vw;;
+                }
+                p{
+                    font-size: 1.2vw;
+                    font-weight: 400;
+                }
+                i{
+                    padding: 0 0.5vw;
+                }
+            }
+            .book{
+                margin: auto;
+                margin-left: 5vw;
+                p{
+                    text-align: center;
+                }
+                .money{
+                    font-weight: 700;
+                    font-size: 1.5vw;
+                }
+                button{
+                    padding:  0.5vw 4vw;
+                    color: white;
+                    background-color: black;
+                    font-size: 1.4vw;
+                }
+            }
+        }
+    }
+}

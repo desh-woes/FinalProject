@@ -1,6 +1,5 @@
 * {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1.2vw;
+  font-family: 'PT Sans', serif;
 }
 
 *, *::before, *::after {
@@ -17,17 +16,21 @@
   margin: 0 auto 15px;
 }
 
-/*Styling for the title per page*/
-.pageTitle {
+.roomBanner .pageTitle {
   width: 300px;
   height: 220px;
   padding: 0 10px;
   background-color: #2e2e2e;
-  font-size: 20px;
   color: #ffffff;
   margin-right: 40px;
 }
 
+.roomBanner .pageTitle h1 {
+  font-family: 'PT Sans', serif;
+  font-size: 2vw;
+}
+
+/*Styling for the title per page*/
 /*Styling for the banner image per page*/
 .pageImg img {
   width: 842px;
@@ -42,18 +45,47 @@
   margin: auto;
 }
 
-.rooms #search {
+.rooms .Searching {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: auto;
-  padding-bottom: 1vw;
+  /*Styling for the date picker*/
+  /*Styling for the date picker icon*/
 }
 
-.rooms #search button {
-  padding: 0.5vw 4vw;
+.rooms .Searching #SearchingForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rooms .Searching input {
+  height: 2.5vw;
+}
+
+.rooms .Searching input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.rooms .Searching input[type="date"]::-webkit-calendar-picker-indicator {
+  color: rgba(0, 0, 0, 0);
+  background: url(https://img.icons8.com/metro/26/000000/calendar-11.png) no-repeat;
+  width: 20px;
+  height: 30px;
+  border-width: thin;
+  position: relative;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.rooms .Searching button {
+  padding: 0.25vw 4vw;
   color: white;
-  background-color: black;
+  background-color: #1f1f1f;
   font-size: 1.4vw;
 }
 
@@ -109,7 +141,7 @@
 .rooms .category .description .book button {
   padding: 0.5vw 4vw;
   color: white;
-  background-color: black;
+  background-color: #1f1f1f;
   font-size: 1.4vw;
 }
 /*# sourceMappingURL=rooms.css.map */

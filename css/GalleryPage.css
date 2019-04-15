@@ -1,0 +1,38 @@
+/*Styling for the overall column*/
+.column {
+    width: 100%;
+    height: 650px;
+    background-color: #ebebeb;
+    display: flex;
+    margin: 0 auto;
+    /*border: 1px solid black;*/
+}
+
+/*Styling for the first horizontal image*/
+#img1{
+    height: 100%;
+    width: 370px;
+    object-fit: cover;
+}
+
+/*Styling for the new image div*/
+.column1{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+/*Styling for the next column of Images and the two rows*/
+.row1{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    margin: 0 auto;
+}
+
+/*Styling for images in the grid*/
+.row1 img{
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
+    /*border: 1px solid black;*/
+    margin: 0 auto;
+}

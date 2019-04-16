@@ -76,3 +76,26 @@ function checkout($userID, $products){
     //either update cart table or 
     //delete from cart table and add it in checkout table
 }
+
+function getRooms(){
+    include "db.php";
+    $return_arr = array();
+   $query  = "SELECT name, price, size, rooms FROM rooms ";
+
+    $result = mysqli_query($conn, $query);
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result)  > 0){
+        while ($row = mysqli_fetch_assoc($result)) {
+            $row_array['name'] = $row['name'];
+            $row_array['price'] = $row['price'];
+            $row_array['size'] = $row['size'];
+            $row_array['rooms'] = $row['rooms'];
+        
+            array_push($return_arr,$row_array);
+           }
+    }
+    mysqli_close($conn);
+
+    return $return_arr;
+
+}

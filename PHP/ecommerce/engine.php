@@ -61,6 +61,13 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             echo json_encode($res);
 
             break;
+
+        case 'getRooms':
+            $res=getRooms();
+            
+            echo json_encode($res);
+
+            break;
         
         default:
             # code...

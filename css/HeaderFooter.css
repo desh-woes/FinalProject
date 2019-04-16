@@ -165,3 +165,11 @@ footer hr{
     object-fit: cover;
     margin: 0 auto;
 }
+
+/* Styling for the link to book a residence */
+#bookNow{
+	border: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: black;
+}

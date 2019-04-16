@@ -121,7 +121,7 @@ function checkout($userID, $products){
     //either update cart table or 
     //delete from cart table and add it in checkout table
 }
-
+//  Select all the rooms from database
 function getRooms(){
     include "db.php";
     $return_arr = array();
@@ -142,6 +142,25 @@ function getRooms(){
     mysqli_close($conn);
 
     return $return_arr;
+}
+
+// Insert a new product in the database
+function addProduct($productId, $name, $price, $desc, $categ ){
+    include "db.php";
+
+    $stmt = $conn->prepare('INSERT INTO products (product_id, product_name, product_price, description) VALUES(?,?,?,?)');
+    if (
+        $stmt &&
+		$stmt -> bind_param('ssss', $productId, $name, $price, $desc) &&
+		$stmt -> execute()
+	) {
+         // new product added to database
+         return 1;
+    } 
+    else{
+        return 0;
+    }
+
 
 }
 

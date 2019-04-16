@@ -83,3 +83,65 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 16px;
     color: #ffffff;
 }
+
+/*Styling for the top amenities section*/
+.topAmenities{
+    display: flex;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 10px;
+    /*border: 1px solid black;*/
+
+}
+
+/*Styling for the individual amenities*/
+.amenities{
+    width: 260px;
+    height: 358px;
+    margin: 20px;
+    font-family: 'PT Sans', serif;
+    box-shadow: 1px 2px #c7c7c7;
+}
+
+/*Styling for the images in the amenities page*/
+.amenities img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/*Styling for all the text in the amenities bar*/
+.amenities b, .amenities p, .amenities h1{
+    padding: 0 25px 0 25px;
+}
+
+/*Styling for Hi tag in amenities*/
+.amenities h1{
+    font-size: xx-large;
+    margin: 10px auto 0;
+}
+
+/*Styling for the second H1 tag*/
+#amenities1{
+    color: red;
+}
+
+/*Styling for the key stats division*/
+.keyStats{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+/*Styling for the key stats Image*/
+.stats img{
+    width: 50px;
+    height: 50px;
+}
+
+.stats{
+    margin: 0 auto;
+}

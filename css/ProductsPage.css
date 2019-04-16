@@ -45,15 +45,15 @@
 }
 
 /* Styling for the values icons */
-.core_values{
+/* .core_values{
     width: 95%;
     display: grid;
     grid-template-columns: 33.3% 33.3% 33.3%;
     margin: 0 auto;
-}
+} */
 
 /* Styling for the value descriptions */
-.core_values p{
+.card p{
     width: 90%;
     margin: 0 auto;
     padding-bottom: 25px;
@@ -109,9 +109,18 @@
 }
 
 /* Styling for the gallery products*/
-.gallery_products, .gallery_products .core_values{
+/* .gallery_products, .gallery_products .core_values{
     padding-top: 30px;
     padding-bottom: 30px;
+} */
+
+
+.gallery_products{
+    width:100%;
+    /* padding: 0 0vw; */
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-gap:10px;
 }
 
 /* Styling for the navidation bar at the buttom of the page*/

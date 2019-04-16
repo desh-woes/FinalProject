@@ -29,8 +29,14 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             $res = getProducts();
 
             echo json_encode($res);
-            // echo json_encode("okay lets do it");
-            // echo "fuck";
+        
+            break;
+
+
+        case 'getChats':
+            $res = displayChats();
+
+            echo json_encode($res);            
 
             break;
 
@@ -65,6 +71,26 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
         case 'getRooms':
             $res=getRooms();
             
+            echo json_encode($res);
+
+            break;
+
+        case 'addChat':
+            $sender = $_POST['sender'];
+            $receiver = $_POST['receiver'];
+            $message = $_POST['message'];
+            $res = addChat($sender, $receiver, $message);
+            
+        case 'addProduct':
+            $productID = 'p000012';
+            $name = $_POST['ProductName'];
+            $desc = $_POST['productDescription'];
+            $categ = $_POST['categories'];
+            $price = $_POST['Price'];
+            echo "Some";
+
+            $res = addProduct($productID, $name, $price, $desc, $categ);
+
             echo json_encode($res);
 
             break;

@@ -83,6 +83,10 @@
   color: #666666;
   width: 50vw;
 }
+.rooms .category .description .text{
+  width: inherit;
+  border: 1px solid black;
+}
 
 .rooms .category .description .text h1 {
   color: #454444;

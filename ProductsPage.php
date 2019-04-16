@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -224,7 +229,7 @@
 					for (var x = 0; x < jsonData.length; x++) {
 						console.log(jsonData);
 
-						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><p>'+jsonData[x].desc+'</p><p><button>Add to Cart</button></p></div>';
+						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><p>'+jsonData[x].desc+'</p><p><button onclick="contactSeller()">Contact Seller</button></p></div>';
 						productHolder.insertAdjacentHTML('beforeend', newChild);
 
 					}
@@ -240,14 +245,17 @@
 			data.append('token', 'webDevGroupTimiErastusOlivierNelson');
 			data.append('tag', 'getProducts');
 
-
-			//Send the proper header information along with the request
-			// xhttp.setRequestHeader('Content-type', 'application/json');
-			// xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 			xhttp.open("POST", "PHP/ecommerce/engine.php", true);
 			xhttp.send(data);
 
 
+		}
+
+
+
+		function contactSeller(){
+			
+			window.location.href = "ChatRoom.php";
 		}
 
 	</script>

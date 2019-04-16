@@ -8,11 +8,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+        type='text/css'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
-<body>
+
+<body onload="getRooms()">
     <!--Section containing the header, logo and Navigation links-->
     <header>
         <!-- Div containing the Logo-->
@@ -50,8 +52,8 @@
 
     <!-- Section containing the gooking form for the rooms -->
     <section class="rooms">
-            <h1 id="title">Our Rooms</h1>
-            <hr>
+        <h1 id="title">Our Rooms</h1>
+        <hr>
         <section class="Searching">
             <form id="SearchingForm">
                 <input onfocus="(this.type='date')" placeholder="CheckIn Date" name="CheckIn">
@@ -62,17 +64,23 @@
             <button type="submit" form="SearchingForm">Search</button>
         </section>
         <!-- Calender -->
+
         <hr>
+
+        
+
+
+
         <div class="category">
             <div class="image">
                 <img src="./images/room-junior.jpg" alt="">
             </div>
             <div class="description">
-                <div class="text">
+                <div id="text">
                     <h1>Junior Suite</h1>
                     <p>Our Junior Suites offer breathtaking vies of the city skyline.</p>
                     <ul>
-                        <li>Size: 260 sq ft</li>
+                        <li id="price">Size: 260 sq ft</li>
                         <li>Beds: 2 Double(s)</li>
                     </ul>
                     <hr>
@@ -181,3 +189,41 @@
 </body>
 
 </html>
+
+<!-- Javascript to fetch from db -->
+
+<script>
+            function getRooms(){
+                // alert("loaded");
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                // if (this.readyState == 4 && this.status == 200) {
+                    console.log(this.responseText);
+                    var jsonData = JSON.parse(this.responseText);
+
+                    var productHolder = document.getElementById("price");
+                    for(var x = 0; x < jsonData.length; x++){
+                        console.log("hi");
+                        productHolder.append("<p>Hello</p>");
+                    }
+                // }
+                // else {
+                    console.log(this.responseText);
+                    alert("not connected yet");
+                // }
+            };
+            var data = new FormData();
+            data.append('token', 'webDevGroupTimiErastusOlivierNelson');
+            data.append('tag', 'getRooms');
+ 
+            //Send the proper header information along with the request
+            // xhttp.setRequestHeader('Content-type', 'application/json');
+            // xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.open("POST", "PHP/ecommerce/engine.php", true);
+            xhttp.send(data);
+
+            }
+
+        </script>
+
+        

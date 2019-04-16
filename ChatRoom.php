@@ -154,20 +154,12 @@ session_start();
 
 
         function chatSubmit(){
-
-            //  = document.getElementById("submitChat");
-            
-          
-
-
-            // alert("chat submit called");
-            
-
             var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function () {
 				if (this.readyState == 4 && this.status == 200) {
 					var jsonData = JSON.parse(this.responseText);
 					if(jsonData == 1){
+                        // alert("its 1");
                         window.location.reload();
 
                     }

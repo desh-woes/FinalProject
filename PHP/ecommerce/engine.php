@@ -80,7 +80,9 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             $receiver = $_POST['receiver'];
             $message = $_POST['message'];
             $res = addChat($sender, $receiver, $message);
-            
+            echo json_encode($res);
+            break;
+
         case 'addProduct':
             $productID = 'p000012';
             $name = $_POST['ProductName'];

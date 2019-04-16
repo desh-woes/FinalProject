@@ -3,15 +3,17 @@
 include "db.php";
 
 function getProducts(){
+    include "db.php";
     $return_arr = array();
     $query = "select * from products";
 
     $result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result)  > 0){
         while ($row = mysqli_fetch_assoc($result)) {
-            $row_array['id'] = $row['id'];
-            $row_array['col1'] = $row['col1'];
-            $row_array['col2'] = $row['col2'];
+            $row_array['id'] = $row['product_id'];
+            $row_array['name'] = $row['product_name'];
+            $row_array['price'] = $row['product_price'];
+            $row_array['desc'] = $row['description'];
         
             array_push($return_arr,$row_array);
            }

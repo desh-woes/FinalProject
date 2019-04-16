@@ -1,17 +1,26 @@
 <?php
 
 
+header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset=UTF-8");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+
 //actions
     //get all products
     //add product to cart
     //show all added products
     //checkout product/products
-
+ 
 
 include "functions.php";
 
+// echo $_POST["token"];
 //check to see if our web app is the one sending the request
 if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
+
 
     $tag = $_POST['tag'];
 
@@ -20,6 +29,8 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             $res = getProducts();
 
             echo json_encode($res);
+            // echo json_encode("okay lets do it");
+            // echo "fuck";
 
             break;
 
@@ -56,3 +67,5 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             break;
     }
 }
+
+?>

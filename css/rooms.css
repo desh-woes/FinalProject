@@ -81,6 +81,7 @@
   display: -ms-flexbox;
   display: flex;
   color: #666666;
+  width: 50vw;
 }
 
 .rooms .category .description .text h1 {

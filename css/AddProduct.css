@@ -31,9 +31,8 @@
 }
 
 #addBlock #info-form #form #right select {
-  padding: 0.5vw  9.3vw 0.5vw 0;
+  padding: 0.5vw  9vw 0.5vw 0.5vw;
   background-color: white;
-  border: 1px solid black;
   color: #858585;
   font-size: 1.2vw;
   margin-bottom: 2vw;
@@ -41,31 +40,30 @@
 
 #addBlock #info-form #form #right #agree{
   display: flex;
+   width: 25vw;
 }
 #addBlock #info-form #form #right #agree input[type="checkbox"]{
-  margin-left: -10vw;
   padding: 0;
 }
 #addBlock #info-form #form #right #agree p{
-  margin:0 -14vw;
-  font-size: 1vw;
+  margin:0;
+  font-size: 0.9vw;
   width: 24vw;
 }
 
 
-#addBlock #info-form #form input[type] {
-  width: 25vw;
+#addBlock #info-form #form input[type="text"] {
+  width: 23vw;
   font-size: 1.2vw;
   margin: 0 2vw 1vw 0;
-  padding: 0.5vw 0;
-  border: 1px solid black;
+  padding: 0.5vw 1vw;
 }
 
 #addBlock #info-form #form textarea {
-  width: 25vw;
+  width: 23vw;
   margin: 1vw 5vw 1vw 0;
-  border: 1px solid black;
   height: 7.5vw;
+  padding: 1vw;
 }
 #addBlock #info-form button{
   padding: 0.5vw 10vw;

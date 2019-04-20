@@ -148,10 +148,10 @@ function getRooms(){
 function addProduct($productId, $name, $price, $desc, $categ ){
     include "db.php";
 
-    $stmt = $conn->prepare('INSERT INTO products (product_id, product_name, product_price, description) VALUES(?,?,?,?)');
+    $stmt = $conn->prepare('INSERT INTO products (product_id, product_name, product_price, description, Category) VALUES(?,?,?,?,?)');
     if (
         $stmt &&
-		$stmt -> bind_param('ssss', $productId, $name, $price, $desc) &&
+		$stmt -> bind_param('sssss', $productId, $name, $price, $desc, $categ) &&
 		$stmt -> execute()
 	) {
          // new product added to database

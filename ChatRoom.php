@@ -38,6 +38,7 @@ session_start();
                 <a href="RoomsPage.html">Rooms</a>
                 <a id="current" href="ProductsPage.html">Products</a>
                 <a href="EventsPage.html">Events</a>
+                <a href="ContactPage.html">Contact</a>
                 <a href="BookingsPage.html" id="bookNow">Book Now</a>
             </nav>
         </div>

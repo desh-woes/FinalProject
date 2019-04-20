@@ -1,0 +1,56 @@
+/* Form background Styles */
+.Form{
+	color: #424242;
+	/*border: 1px solid #eff0f8;*/
+    width: 90%;
+    margin: 0 auto;
+    /*background-color: #afb1b9;*/
+    text-align: center;
+	font-family: 'PT Sans', serif;
+	padding-bottom: 70px;
+}
+
+/*Styling for text in form*/
+.Form h1{
+    padding: 30px 0 40px 0;
+    font-size: large;
+    font-weight: bold;
+    color: #000000;
+}
+
+/*Styling font labels*/
+.Form label{
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+/*Syling for the messaging box*/
+#Message {
+    position: relative;
+    bottom: 30px; 
+    padding-right: 5px;
+}
+
+/*Styling for the text area*/
+#form1 input, #form1 textarea {
+    padding: 15px;
+    border-radius: 5px;
+    border: 0;
+	width : 50%;
+    margin: 0;
+    font-family: 'PT Sans', serif;
+}
+
+/*Styling for the form button*/
+#form_button{
+    width: 156px;
+    height: 44px;
+    border-radius: 5px;
+    padding: 6px 10px;
+    background-color: #506982;
+    font-family: 'PT Sans', serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: center;
+}

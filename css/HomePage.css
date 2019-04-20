@@ -83,3 +83,130 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 16px;
     color: #ffffff;
 }
+
+/*Styling for the top amenities section*/
+.topAmenities{
+    display: flex;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 10px;
+    /*border: 1px solid black;*/
+
+}
+
+/*Styling for the individual amenities*/
+.amenities{
+    width: 260px;
+    height: fit-content;
+    min-height: 340px;
+    margin: 20px;
+    font-family: 'PT Sans', serif;
+    box-shadow: 1px 2px #c7c7c7;
+}
+
+/*Styling for the images in the amenities page*/
+.amenities img, .roomDetails img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/*Styling for the room details division*/
+.roomDetails{
+    width: 260px;
+    height: fit-content;
+    margin: 20px;
+    font-family: 'PT Sans', serif;
+    border: 1px solid #e6e6ed;
+}
+
+.roomDetails button{
+    display: block;
+    margin: 0 auto 15px;
+    width: 200px;
+    /*height: 44px;*/
+    padding: 6px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #7a7874;
+    font-family: PT Sans, serif;
+    font-size: 20px;
+    color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2), inset 0 1px 2px rgba(0,0,0,0.2);
+    /*display: block;*/
+    /*margin: 0 auto 20px;*/
+
+    /*text-align:center;*/
+}
+
+/*Styling for all the text in the amenities bar*/
+.amenities b, .amenities p, .amenities h1, .roomDetails p{
+    padding: 0 25px 0 25px;
+}
+
+/*Styling for Hi tag in amenities*/
+.amenities h1{
+    font-size: xx-large;
+    margin: 10px auto 0;
+}
+
+/*Styling for h2 tag in the rooms division*/
+.roomDetails h2{
+    font-family: 'PT Sans', serif;
+    margin: 15px auto;
+    width: fit-content;
+    color: gray;
+}
+
+/*Styling for the second H1 tag*/
+.amenities1{
+    color: red;
+}
+
+/*Styling for the key stats division*/
+.keyStats{
+    padding: 20px;
+    background-image: url("../images/statsBackground.jpg");
+    height: 300px;
+    position: relative;
+    /*background-color: gray;*/
+}
+
+/*Styling for the key stats Image*/
+.stats img{
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+/*Styling for each stats Division*/
+.stats{
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    /*border: 1px solid black;*/
+    margin: 100px auto 0;
+}
+
+/*Styling for the H1 and H4 elements in the key stats bar*/
+.stats h2, .stats h4{
+    width: fit-content;
+    margin: 0 auto 5px;
+    color: white;
+}
+
+/*Styling for the shade layer on the background image*/
+.layer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    background-color: rgba(47, 44, 47, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

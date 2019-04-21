@@ -152,21 +152,21 @@ session_start();
 
 		<div class="roomDetails">
 			<h2>Top Suit</h2>
-			<img src="images/FreeWifi.jpg" alt="FreeWifi">
+			<img src="images/rooms-banner.jpg" alt="FreeWifi">
 			<p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
 			<button>Book</button>
 		</div>
 
 		<div class="roomDetails">
 			<h2>Top Suit</h2>
-			<img src="images/FreePool.jpg" alt="FreePool">
+			<img src="images/rooms-banner.jpg" alt="FreePool">
 			<p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
 			<button>Book</button>
 		</div>
 
 		<div class="roomDetails">
 			<h2>Top Suit</h2>
-			<img src="images/HotelBar.jpg" alt="HotelBar">
+			<img src="images/rooms-banner.jpg" alt="HotelBar">
 			<p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
 			<button>Book</button>
 		</div>

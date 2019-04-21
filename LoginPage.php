@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "PHP/ecommerce/db.php";
+// include 'includes/header.php';
 $username = "";
 $errors = array();
 
@@ -11,18 +12,24 @@ if (isset($_POST['login_submit'])) {
 
 
     if (count($errors) == 0) {
-        $password = md5($password);
+        // $password = m$password;
         $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
         $results = mysqli_query($conn, $query);
         if (mysqli_num_rows($results) == 1) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
+<<<<<<< HEAD
             header('location: HomePage.html');
+=======
+            header('location: HomePage.php');
+>>>>>>> 1a55c3a96b61bc80b55bd89c7ebd2cf5eec8cf6e
         } else {
             array_push($errors, "Wrong username/password combination");
         }
     }
 }
+
+
 ?>
 
 
@@ -30,22 +37,61 @@ if (isset($_POST['login_submit'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>ChatRoom</title>
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
-          type='text/css'>
-    <link href="css/HeaderFooter.css" rel="stylesheet" type="text/css">
-    <link href="css/LoginPage.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/ChatRoom.css">
+    <link rel="stylesheet" type="text/css" href="css/LoginPage.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <link rel="stylesheet" type="text/css" href="css/AddProduct.css">
+    <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
     <link rel="import" href="includes/footerHeader.html">
-    <title>LoginPage</title>
 </head>
-<body>
-<!--Section containing the header, logo and Navigation links-->
+<body onload="loadPreviousChats()">
+    <!--Section containing the header, logo and Navigation links-->
+    <header>
+        <!-- Div containing the Logo-->
+        <div class="logoImg">
+            <!-- Add vertical line to the Logo-->
+            <hr>
+            <h1>The<br>Bourgeoning<br>Hotel</h1>
+        </div>
+
+        <!-- Navigation links in the header-->
+        <div class="nav">
+            <nav>
+            <a href="HomePage.php">Home</a>
+				<a href="GalleryPage.php">Gallery</a>
+				<a href="RoomsPage.php">Rooms</a>
+				<a href="ProductsPage.php?category=all">Products</a>
+				<a href="EventsPage.php">Events</a>
+				<a id="current" href="ContactPage.php">Contact</a>
+				<a href="BookingsPage.php" id="bookNow">Book Now</a>
+               <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+
+            ?>
+            </nav>
+        </div>
+    </header>
+
+<!-- 
+
 <script>
     var link = document.querySelector('link[rel="import"]');
     var content = link.import.querySelector('header');
     document.body.appendChild(content.cloneNode(true));
-</script>
+</script> -->
 
 <!-- Login Section -->
 <section class="login">
@@ -70,7 +116,7 @@ if (isset($_POST['login_submit'])) {
 
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
+            <span class="psw">Don't have an account?  <a href="SignUpPage.php">Signup</a></span>
         </div>
     </form>
 </section>

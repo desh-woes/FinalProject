@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href="css/HeaderFooter.css" rel="stylesheet" type="text/css">
-    <link href="css/SignUpPage.css" rel="stylesheet" type="text/css">
-    <title>SignUpPage</title>
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <link rel="stylesheet" type="text/css" href="css/GalleryPage.css">
+    <title>GalleryPage</title>
 </head>
 <body>
     <!--Section containing the header, logo and Navigation links-->
@@ -22,46 +22,43 @@
         <!-- Navigation links in the header-->
         <div class="nav">
             <nav>
-                <a href="HomePage.html">Home</a>
-                <a href="GalleryPage.html">Gallery</a>
-                <a href="RoomsPage.html">Rooms</a>
-                <a href="ProductsPage.html">Products</a>
-                <a href="EventsPage.html" id="current">Events</a>
-                <a id="current" href="ContactPage.html">Contact</a>
+                <a href="HomePage.php">Home</a>
+                <a id="current" href="GalleryPage.php">Gallery</a>
+                <a href="RoomsPage.php">Rooms</a>
+                <a href="ProductsPage.php">Products</a>
+                <a href="EventsPage.php">Events</a>
+                <a href="ContactPage.php">Contact</a>
                 <a href="BookingsPage.php" id="bookNow">Book Now</a>
+                <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+                ?>
             </nav>
         </div>
     </header>
 
-    <!-- Section containing the sign up form -->
-    <section class="SignUp">
-        <form action="action_page.php" style="border:1px solid #ccc">
-            <div class="container">
-                <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr>
-
-                <label><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <label><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
-
-                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-                <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
+    <!-- Gallery section -->
+    <section>
+        <div class="column">
+            <img id="img1" src="images/Gallery%201.jpg" alt="GalleryImg">
+            <div class="column1">
+                <div class="row1">
+                    <img src="images/Gallery%202.jpg" alt="GalleryImg">
+                    <img src="images/Gallery%203.jpg" alt="GalleryImg">
                 </div>
+
+                <div class="row1">
+                    <img src="images/Gallery%204.jpg" alt="GalleryImg">
+                    <img src="images/rooms-banner.jpg" alt="GalleryImg" >
+                </div>
+
             </div>
-        </form>
+        </div>
     </section>
 
     <!-- Section containing the footer of the website -->
@@ -81,7 +78,6 @@
                 </div>
                 <h3>&#0169 2023 by the group 3</h3>
             </div>
-
             <div class="mailingList">
                 <h4>Join Our Mailing List</h4>
                 <form id="mailingListForm">
@@ -93,6 +89,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>

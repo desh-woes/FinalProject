@@ -8,8 +8,8 @@ if (isset($_POST['BookingForm'])) {
     $departDate = $_POST['CheckOut'];
     $adults = $_POST['AdultsNumber'];
     $kids = $_POST['KidsNumber'];
-    echo $adults;
-    echo $kids;
+    // echo $adults;
+    // echo $kids;
 }
 
 if (isset($_POST['bookFromRoomsPage'])) {

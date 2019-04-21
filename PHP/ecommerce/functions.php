@@ -160,7 +160,24 @@ function addProduct($productId, $name, $price, $desc, $categ ){
     else{
         return 0;
     }
+}
 
+function signUp($username, $password){
+    include "db.php";
+
+    $stmt = $conn->prepare('INSERT INTO users (user_name, password) VALUES(?,?)');
+    $password = md5($password);
+    if (
+        $stmt &&
+		$stmt -> bind_param('ss', $username, $password) &&
+		$stmt -> execute()
+	) {
+         // user signed up succesfully
+         return 1;
+    } 
+    else{
+        return 0;
+    }
 
 }
 

@@ -13,7 +13,8 @@ header{
 	height: 100px;
 	background-color: #ebebeb;
 	display: grid;
-	grid-template-columns:40% 60%;
+	grid-template-columns:30% 70%;
+	/* border: 1px solid black; */
     padding: 16px 50px 16px 50px;
 }
 

@@ -252,3 +252,54 @@ function signUp($username, $password){
 }
 
 
+
+function showChats($username){
+        //get id associted with the username
+
+        include "db.php";
+
+
+        $stmt1 = $conn->prepare("SELECT id FROM users WHERE username = ?");
+        $idFromUsername = "";
+    
+        if (
+            $stmt1 &&
+            $stmt1 -> bind_param('s',$sender) &&
+            $stmt1 -> execute()
+        ) {
+             // new item added to cart
+             $result = $stmt1->get_result();
+             $row = $result->fetch_assoc();
+             $idFromUsername = $row['id'];
+        }
+
+        
+        $return_arr = array();
+
+
+        SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+        $stmt = $mysqli->prepare("SELECT * FROM chats WHERE receiver = ?");
+        $stmt->bind_param("s", $category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows === 0) exit('No rows');
+        while($row = $result->fetch_assoc()) {
+            $row_array['sender'] = $row['sender'];
+            // $row_array['name'] = $row['product_name'];
+            // $row_array['price'] = $row['product_price'];
+            // $row_array['desc'] = $row['description'];
+            // $row_array['category'] = $row['product_category'];
+            // $row_array['seller_id'] = $row['seller_id'];
+    
+    
+        array_push($return_arr,$row_array);
+        }
+        // var_export($ages);
+        $stmt->close();
+        return $return_arr;
+
+
+}
+

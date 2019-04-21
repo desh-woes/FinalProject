@@ -7,7 +7,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-
+ 
 //actions
     //get all products
     //add product to cart
@@ -115,6 +115,13 @@ if($_POST["token"] == "webDevGroupTimiErastusOlivierNelson"){
             // echo($username ." " .$password);
     
             $res = signUp($username, $password);
+            echo json_encode($res);
+            break;
+
+
+        case 'showChats':
+            $username= $_POST['username'];    
+            $res = showChats($username);
             echo json_encode($res);
             break;
     

@@ -56,6 +56,10 @@ header{
 	align-items: center;
     text-decoration: none;
 }
+.nav a:hover{
+	color:black;
+}
+
 
 /*Styling for the link texts in the navigation bar*/
 nav a{

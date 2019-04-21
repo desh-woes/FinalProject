@@ -1,14 +1,21 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
-	<link rel="stylesheet" type="text/css" href="css/HomePage.css">
-	<meta name="format-detection" content="telephone=no"/>
-	<title>HomePage</title>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <link rel="stylesheet" type="text/css" href="css/HomePage.css">
+    <link rel="import" href="includes/footerHeader.html">
+    <!--	<link rel="import" href="includes/header.html">-->
+    <title>HomePage</title>
 </head>
 <body >
 	<!--Section containing the header, logo and Navigation links-->
@@ -22,15 +29,25 @@
 
 		<!-- Navigation links in the header-->
 		<div class="nav">
-			<nav>
-				<a id="current" href="HomePage.html">Home</a>
-				<a href="GalleryPage.html">Gallery</a>
-				<a href="RoomsPage.html">Rooms</a>
-				<a href="ProductsPage.php">Products</a>
-				<a href="EventsPage.html">Events</a>
-				<a href="ContactPage.html">Contact</a>
-				<a href="BookingsPage.php" id="bookNow">Book Now</a>
-			</nav>
+            <nav>
+                <a href="HomePage.php">Home</a>
+                <a href="GalleryPage.html">Gallery</a>
+                <a href="RoomsPage.html">Rooms</a>
+                <a id="current" href="ProductsPage.php?category=all">Products</a>
+                <a href="EventsPage.html">Events</a>
+                <a href="BookingsPage.html" id="bookNow">Book Now</a>
+               <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+
+            ?>
+            </nav>
+        </div>
 		</div>
 	</header>
 
@@ -42,7 +59,7 @@
 	<!-- Section containing the book your stay bar -->
 	<section class="Booking">
 		<h4>Reserve Your Stay</h4>
-		<form action="BookingsPage.php" method="POST">
+		<form id="BookingForm">
 			<label>
 				<h5>Check In</h5>
 				<input type="date" name="CheckIn">
@@ -64,9 +81,8 @@
 					<input type="number" placeholder="0" name="KidsNumber">
 				</label>
 			</div>
-			<button type="submit" name="BookingForm">Book</button>
 		</form>
-
+		<button type="submit" form="BookingForm">Book</button>
 	</section>
 
 	<!-- Section Highlighting top amenities -->

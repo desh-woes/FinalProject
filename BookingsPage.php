@@ -3,7 +3,7 @@ $arriveDate = "";
 $departDate = "";
 $adults = 0;
 $kids = 0;
-if (isset($_POST['BookingForm'])) {
+if (isset($_POST['BookingFormFromHomePage'])) {
     $arriveDate = $_POST['CheckIn'];
     $departDate = $_POST['CheckOut'];
     $adults = $_POST['AdultsNumber'];
@@ -12,7 +12,7 @@ if (isset($_POST['BookingForm'])) {
     // echo $kids;
 }
 
-if (isset($_POST['bookFromRoomsPage'])) {
+if (isset($_POST['BookFormFromRoomsPage'])) {
     $arriveDate = $_POST['CheckIn'];
     $departDate = $_POST['CheckOut'];
     $adults = $_POST['AdultsNumber'];
@@ -37,27 +37,11 @@ if (isset($_POST['bookFromRoomsPage'])) {
 </head>
 <body>
 <!--Section containing the header, logo and Navigation links-->
-<header>
-    <!-- Div containing the Logo-->
-    <div class="logoImg">
-        <!-- Add vertical line to the Logo-->
-        <hr>
-        <h1>The<br>Bourgeoning<br>Hotel</h1>
-    </div>
-
-    <!-- Navigation links in the header-->
-    <div class="nav">
-        <nav>
-            <a href="HomePage.html">Home</a>
-            <a href="GalleryPage.html">Gallery</a>
-            <a href="RoomsPage.html">Rooms</a>
-            <a href="ProductsPage.php">Products</a>
-            <a href="EventsPage.html">Events</a>
-            <a href="ContactPage.html">Contact</a>
-            <a href="BookingsPage.php" id="bookNow">Book Now</a>
-        </nav>
-    </div>
-</header>
+<script>
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import.querySelector('header');
+    document.body.appendChild(content.cloneNode(true));
+</script>
 
 <!-- Section containing the booking form -->
 <section class="reservationForm">

@@ -13,6 +13,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="import" href="includes/footerHeader.html">
 </head>
 
 <body onload="getRooms()">
@@ -57,12 +58,12 @@
     <h1 id="title">Our Rooms</h1>
     <hr>
     <section class="Searching">
-        <form action="BookingsPage.php" method="POST" >
+        <form action="BookingsPage.php" method="POST">
             <input onfocus="(this.type='date')" placeholder="CheckIn Date" name="CheckIn">
             <input onfocus="(this.type='date')" placeholder="CheckOut Date" name="CheckOut">
             <input type="number" placeholder="1 Adult(s)" name="AdultsNumber">
             <input type="number" placeholder="0 Kid(s)" name="KidsNumber">
-            <button type="submit" name="bookFromRoomsPage" >Book</button>
+            <button type="submit" name="BookFormFromRoomsPage">Book</button>
         </form>
 
     </section>

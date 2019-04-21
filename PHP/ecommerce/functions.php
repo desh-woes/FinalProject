@@ -2,46 +2,96 @@
 
 include "db.php";
 
-function getProducts(){
+
+function getAllProducts(){
     include "db.php";
+
     $return_arr = array();
-    $query = "select * from products";
 
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)  > 0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row_array['id'] = $row['product_id'];
-            $row_array['name'] = $row['product_name'];
-            $row_array['price'] = $row['product_price'];
-            $row_array['desc'] = $row['description'];
-        
-            array_push($return_arr,$row_array);
-           }
+    $stmt = $mysqli->prepare("SELECT * FROM products");
+    // $stmt->bind_param("si", $category, 1);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows === 0) exit('No rows');
+    while($row = $result->fetch_assoc()) {
+    $row_array['id'] = $row['product_id'];
+    $row_array['name'] = $row['product_name'];
+    $row_array['price'] = $row['product_price'];
+    $row_array['desc'] = $row['description'];
+    $row_array['category'] = $row['product_category'];
+    $row_array['seller_id'] = $row['seller_id'];
+
+
+    array_push($return_arr,$row_array);
     }
-
-    mysqli_close($conn);
+    // var_export($ages);
+    $stmt->close();
     return $return_arr;
 }
 
 
-function displayChats(){
+function getProducts($category){
     include "db.php";
-    $return_arr = array();
-    $query = "select * from chats";
 
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)  > 0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row_array['sender'] = $row['sender'];
-            $row_array['receiver'] = $row['receiver'];
-            $row_array['message'] = $row['message'];
-            $row_array['date'] = $row['date'];
-        
-            array_push($return_arr,$row_array);
-           }
+    $return_arr = array();
+
+    $stmt = $mysqli->prepare("SELECT * FROM products WHERE product_category = ?");
+    $stmt->bind_param("s", $category);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows === 0) exit('No rows');
+    while($row = $result->fetch_assoc()) {
+    $row_array['id'] = $row['product_id'];
+    $row_array['name'] = $row['product_name'];
+    $row_array['price'] = $row['product_price'];
+    $row_array['desc'] = $row['description'];
+    $row_array['category'] = $row['product_category'];
+    $row_array['seller_id'] = $row['seller_id'];
+
+
+    array_push($return_arr,$row_array);
+    }
+    // var_export($ages);
+    $stmt->close();
+    return $return_arr;
+}
+
+
+function displayChats($sender, $receiver){
+    include "db.php";
+
+
+    $stmt1 = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $idFromUsername = "";
+
+    if (
+		$stmt1 &&
+		$stmt1 -> bind_param('s',$sender) &&
+		$stmt1 -> execute()
+	) {
+         // new item added to cart
+         $result = $stmt1->get_result();
+         $row = $result->fetch_assoc();
+         $idFromUsername = $row['id'];
     }
 
-    mysqli_close($conn);
+    
+    $return_arr = array();
+
+    $query = "SELECT * FROM chats WHERE sender IN ('$idFromUsername', '$receiver')";
+    $result = mysqli_query($conn, $query);
+
+   
+    while($row = mysqli_fetch_assoc($result)) {
+        $row_array['sender'] = $row['sender'];
+        $row_array['receiver'] = $row['receiver'];
+        $row_array['message'] = $row['message'];
+        $row_array['date'] = $row['date'];
+
+
+    array_push($return_arr,$row_array);
+    }
+   
     return $return_arr;
 }
 
@@ -51,11 +101,31 @@ function displayChats(){
 function addChat($sender, $receiver, $message){
     include "db.php";
 
+    //get id from login session username
+
+
+    $stmt1 = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $idFromUsername = "";
+
+    if (
+		$stmt1 &&
+		$stmt1 -> bind_param('s',$sender) &&
+		$stmt1 -> execute()
+	) {
+         // new item added to cart
+         $result = $stmt1->get_result();
+         $row = $result->fetch_assoc();
+         $idFromUsername = $row['id'];
+    }
+    
+
+    
+
     $stmt = $conn->prepare("INSERT INTO chats (receiver, sender, message) VALUES (?,?,?)");
 
     if (
 		$stmt &&
-		$stmt -> bind_param('sss', $receiver, $sender, $message) &&
+		$stmt -> bind_param('sss', $receiver, $idFromUsername, $message) &&
 		$stmt -> execute()
 	) {
          // new item added to cart

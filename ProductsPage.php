@@ -90,7 +90,7 @@ session_start();
 	</section>
 
 	<!-- Pagination section -->
-	<section class="pagination">
+	<!-- <section class="pagination">
 		<a href="#">&laquo;</a>
 		<a href="#">1</a>
 		<a class="active" href="#">2</a>
@@ -99,11 +99,11 @@ session_start();
 		<a href="#">5</a>
 		<a href="#">6</a>
 		<a href="#">&raquo;</a>
-	</section>
+	</section> -->
 
 	<!-- Button to prompt the user to add products -->
 	<div id="addButton">
-		<button onclick="window.location.href = 'AddProductsPage.html'">Add New Products</button>
+		<button onclick="window.location.href = 'AddProductsPage.php'">Add New Products</button>
 	</div>
 
 	<!-- Section containing the footer of the website -->

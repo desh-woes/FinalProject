@@ -1,9 +1,7 @@
 <?php 
 session_start();
-
 if(!isset($_SESSION['username'])){
     header('Location: HomePage.php');
-
 }
 ?>
 
@@ -18,9 +16,6 @@ if(!isset($_SESSION['username'])){
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/ChatRoom.css">
     <link rel="stylesheet" type="text/css" href="css/LoginPage.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css"> -->
-
-    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
     <link rel="stylesheet" type="text/css" href="css/AddProduct.css">
     <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
     <link rel="import" href="includes/footerHeader.html">
@@ -53,8 +48,7 @@ if(!isset($_SESSION['username'])){
                     else{
                         echo ' <a href="LoginPage.php" >Login</a>';
                     }
-
-            ?>
+                ?>
             </nav>
         </div>
     </header>

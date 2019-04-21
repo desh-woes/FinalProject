@@ -45,7 +45,9 @@ if($_POST["token"] == "webDevGroupTimiErastusOlivierNelson"){
 
 
         case 'getChats':
-            $res = displayChats();
+            $sender = $_POST['buyer'];
+            $receiver = $_POST['seller'];
+            $res = displayChats($sender, $receiver);
 
             echo json_encode($res);            
 

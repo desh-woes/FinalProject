@@ -57,25 +57,41 @@ function getProducts($category){
 }
 
 
-function displayChats(){
+function displayChats($sender, $receiver){
     include "db.php";
-    $return_arr = array();
-    $query = "select * from chats";
 
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)  > 0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row_array['sender'] = $row['sender'];
-            $row_array['receiver'] = $row['receiver'];
-            $row_array['message'] = $row['message'];
-            $row_array['date'] = $row['date'];
-            
-        
-            array_push($return_arr,$row_array);
-           }
+
+    $stmt1 = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $idFromUsername = "";
+
+    if (
+		$stmt1 &&
+		$stmt1 -> bind_param('s',$sender) &&
+		$stmt1 -> execute()
+	) {
+         // new item added to cart
+         $result = $stmt1->get_result();
+         $row = $result->fetch_assoc();
+         $idFromUsername = $row['id'];
     }
 
-    mysqli_close($conn);
+    
+    $return_arr = array();
+
+    $query = "SELECT * FROM chats WHERE sender IN ('$idFromUsername', '$receiver')";
+    $result = mysqli_query($conn, $query);
+
+   
+    while($row = mysqli_fetch_assoc($result)) {
+        $row_array['sender'] = $row['sender'];
+        $row_array['receiver'] = $row['receiver'];
+        $row_array['message'] = $row['message'];
+        $row_array['date'] = $row['date'];
+
+
+    array_push($return_arr,$row_array);
+    }
+   
     return $return_arr;
 }
 
@@ -85,11 +101,31 @@ function displayChats(){
 function addChat($sender, $receiver, $message){
     include "db.php";
 
+    //get id from login session username
+
+
+    $stmt1 = $conn->prepare("SELECT id FROM users WHERE username = ?");
+    $idFromUsername = "";
+
+    if (
+		$stmt1 &&
+		$stmt1 -> bind_param('s',$sender) &&
+		$stmt1 -> execute()
+	) {
+         // new item added to cart
+         $result = $stmt1->get_result();
+         $row = $result->fetch_assoc();
+         $idFromUsername = $row['id'];
+    }
+    
+
+    
+
     $stmt = $conn->prepare("INSERT INTO chats (receiver, sender, message) VALUES (?,?,?)");
 
     if (
 		$stmt &&
-		$stmt -> bind_param('sss', $receiver, $sender, $message) &&
+		$stmt -> bind_param('sss', $receiver, $idFromUsername, $message) &&
 		$stmt -> execute()
 	) {
          // new item added to cart

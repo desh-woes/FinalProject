@@ -1,6 +1,7 @@
 <?php
-session_start();
+// session_start();
 include "PHP/ecommerce/db.php";
+include 'includes/header.php';
 $username = "";
 $errors = array();
 
@@ -11,22 +12,24 @@ if (isset($_POST['login_submit'])) {
 
 
     if (count($errors) == 0) {
-        $password = md5($password);
+        // $password = m$password;
         $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
         $results = mysqli_query($conn, $query);
         if (mysqli_num_rows($results) == 1) {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
+            header('location: HomePage.php');
         } else {
             array_push($errors, "Wrong username/password combination");
         }
     }
 }
+
+
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,12 +43,12 @@ if (isset($_POST['login_submit'])) {
     <title>LoginPage</title>
 </head>
 <body>
-<!--Section containing the header, logo and Navigation links-->
+
 <script>
     var link = document.querySelector('link[rel="import"]');
     var content = link.import.querySelector('header');
     document.body.appendChild(content.cloneNode(true));
-</script>
+</script> -->
 
 <!-- Login Section -->
 <section class="login">

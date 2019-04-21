@@ -19,7 +19,6 @@ session_start();
 </head>
 
 <body onload="getProducts()">
-<<<<<<< HEAD
 	<!--Section containing the header, logo and Navigation links-->
 	<header>
 		<!-- Div containing the Logo-->
@@ -31,15 +30,25 @@ session_start();
 
 		<!-- Navigation links in the header-->
 		<div class="nav">
-			<nav>
-				<a href="HomePage.html">Home</a>
-				<a href="GalleryPage.html">Gallery</a>
-				<a href="RoomsPage.html">Rooms</a>
-				<a id="current" href="ProductsPage.php?category=all">Products</a>
-				<a href="EventsPage.html">Events</a>
-				<a href="BookingsPage.html" id="bookNow">Book Now</a>
-			</nav>
-		</div>
+            <nav>
+                <a href="HomePage.php">Home</a>
+                <a href="GalleryPage.html">Gallery</a>
+                <a href="RoomsPage.html">Rooms</a>
+                <a id="current" href="ProductsPage.html">Products</a>
+                <a href="EventsPage.html">Events</a>
+                <a href="BookingsPage.html" id="bookNow">Book Now</a>
+               <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+
+            ?>
+            </nav>
+        </div>
 	</header>
 
 	<!-- Section containing the product page banner -->
@@ -146,7 +155,7 @@ session_start();
 					for (var x = 0; x < jsonData.length; x++) {
 						console.log(jsonData);
 
-						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><br><p>Category: '+jsonData[x].category+'</p><p>'+jsonData[x].desc+'</p><p><button onclick="contactSeller(3)">Contact Seller</button></p></div>';
+						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><br><p>Category: '+jsonData[x].category+'</p><p>'+jsonData[x].desc+'</p><p><button onclick="contactSeller(2)">Contact Seller</button></p></div>';
 						productHolder.insertAdjacentHTML('beforeend', newChild);
 
 					}
@@ -174,213 +183,23 @@ session_start();
 
 
 		function contactSeller(sellerId){
+
+			var isLoggedIn = "<?php  echo $login = isset($_SESSION['username']) ? 1:0; ?>";
+
+			if(isLoggedIn == 1){
+				window.location.href = "ChatRoom.php?seller="+sellerId;
+
+			}
+
+			else{
+				alert("You have to login to chat");
+				window.location.href = "LoginPage.php";
+			}
 			
-			window.location.href = "ChatRoom.php?seller="+sellerId;
+			
 		}
 
 	</script>
-=======
-<!--Section containing the header, logo and Navigation links-->
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('header');
-    document.body.appendChild(content.cloneNode(true));
-</script>
-
-<!-- Section containing the product page banner -->
-<section class="productBanner">
-    <!--Page title-->
-    <div class="pageTitle">
-        <h1>Products</h1>
-    </div>
-
-    <!--Page banner-->
-    <div class="pageImg">
-        <img src="images/ProductsImage.jpg" alt="ProductImg">
-    </div>
-</section>
-
-<!-- Section containing the Our products segment and the available products segment -->
-<section class="ourProducts">
-    <h1>Our Products</h1>
-    <hr>
-    <p>At the Bourgeoning, we give a chance for our clients to sell their goods on our platform. Do you have foreign
-        merchandise? are you willing to sell them? leverage our platform!</p>
-    <hr>
-
-    <!-- Division containing the available products and navigation buttons -->
-    <div class="ourProducts1">
-        <h1>Available Products</h1>
-        <div>
-            <button>All</button>
-            <button>Clothings</button>
-            <button>Food Items</button>
-            <button>Art Work</button>
-        </div>
-    </div>
-    <hr>
-</section>
-
-<!--Product Card segment-->
-<section id="products-holder" class="gallery_products">
-
-    <!-- <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Lunch Special</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Lunch Special</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Lunch Special</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Drinks and Beverages</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Drinks and Beverages</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Drinks and Beverages</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Healthy Breakfast</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Healthy Breakfast</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div>
-
-    <div class="card">
-        <img src="images/addProduct.jpg">
-        <h1>Healthy Breakfast</h1>
-        <p class="price">$19.99</p>
-        <p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-            diam. Sed arcu. Cras consequat.</p>
-        <p><button>Add to Cart</button></p>
-    </div> -->
-
-</section>
-
-<!-- Pagination section -->
-<section class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a class="active" href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</section>
-
-<!-- Button to prompt the user to add products -->
-<div id="addButton">
-    <button onclick="window.location.href = 'AddProductsPage.html'">Add New Products</button>
-</div>
-
-<!-- Section containing the footer of the website -->
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('footer');
-    document.body.appendChild(content.cloneNode(true));
-</script>
-
-
-<script>
-
-
-    // window.onload()
-
-    function getProducts() {
-        // alert("loaded");
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-                var jsonData = JSON.parse(this.responseText);
-
-
-                var productHolder = document.getElementById("products-holder");
-                for (var x = 0; x < jsonData.length; x++) {
-                    console.log(jsonData);
-
-                    var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>' + jsonData[x].name + '</h1><p class="price">$' + jsonData[x].price + '</p><p>' + jsonData[x].desc + '</p><p><button onclick="contactSeller()">Contact Seller</button></p></div>';
-                    productHolder.insertAdjacentHTML('beforeend', newChild);
-
-                }
-
-            } else {
-                console.log(this.responseText);
-                // alert("not connected yet");
-            }
-        };
-        var data = new FormData();
-        data.append('token', 'webDevGroupTimiErastusOlivierNelson');
-        data.append('tag', 'getProducts');
-
-        xhttp.open("POST", "PHP/ecommerce/engine.php", true);
-        xhttp.send(data);
-
-
-    }
-
-
-    function contactSeller() {
-
-        window.location.href = "ChatRoom.php";
-    }
-
-</script>
->>>>>>> erastus
 </body>
 
 </html>

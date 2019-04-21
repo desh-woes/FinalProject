@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +17,6 @@
     <!--	<link rel="import" href="includes/header.html">-->
     <title>HomePage</title>
 </head>
-<<<<<<< HEAD
 <body >
 	<!--Section containing the header, logo and Navigation links-->
 	<header>
@@ -25,14 +29,25 @@
 
 		<!-- Navigation links in the header-->
 		<div class="nav">
-			<nav>
-				<a id="current" href="HomePage.html">Home</a>
-				<a href="GalleryPage.html">Gallery</a>
-				<a href="RoomsPage.html">Rooms</a>
-				<a href="ProductsPage.php?category=all">Products</a>
-				<a href="EventsPage.html">Events</a>
-				<a href="BookingsPage.html" id="bookNow">Book Now</a>
-			</nav>
+            <nav>
+                <a href="HomePage.php">Home</a>
+                <a href="GalleryPage.html">Gallery</a>
+                <a href="RoomsPage.html">Rooms</a>
+                <a id="current" href="ProductsPage.php?category=all">Products</a>
+                <a href="EventsPage.html">Events</a>
+                <a href="BookingsPage.html" id="bookNow">Book Now</a>
+               <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+
+            ?>
+            </nav>
+        </div>
 		</div>
 	</header>
 
@@ -183,149 +198,5 @@
 			</div>
 		</div>
 	</footer>
-=======
-<body>
-<!--Section containing the header, logo and Navigation links-->
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('header');
-    document.body.appendChild(content.cloneNode(true));
-</script>
-
-<!-- Section for the body of the Web page -->
-<section class="HomePageBanner">
-    <img src="images/HomePageBanner1.jpg" alt="BannerImage">
-</section>
-
-<!-- Section containing the book your stay bar -->
-<section class="Booking">
-    <h4>Reserve Your Stay</h4>
-    <form action="BookingsPage.php" method="POST">
-        <label>
-            <h5>Check In</h5>
-            <input type="date" name="CheckIn">
-        </label>
-
-        <label>
-            <h5>Check Out</h5>
-            <input type="date" name="CheckOut">
-        </label>
-
-        <div class="bookStay">
-            <label>
-                <h5>Adult(s)</h5>
-                <input type="number" placeholder="0" name="AdultsNumber">
-            </label>
-
-            <label>
-                <h5>Kid(s)</h5>
-                <input type="number" placeholder="0" name="KidsNumber">
-            </label>
-        </div>
-        <button type="submit" name="BookingFormFromHomePage">Book</button>
-    </form>
-
-</section>
-
-<!-- Section Highlighting top amenities -->
-<section class="topAmenities">
-    <div class="amenities">
-        <h1>Top</h1>
-        <h1 class="amenities1">Amenities</h1>
-        <p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-            aliquip ex ea commodo consequat</p>
-    </div>
-
-    <div class="amenities">
-        <img src="images/FreeWifi.jpg" alt="FreeWifi">
-        <b>Free Wifi In Lobby</b>
-        <p>up a land of wild nature, mystical and unexplored. With only 350,000 visitors per year</p>
-    </div>
-
-    <div class="amenities">
-        <img src="images/FreePool.jpg" alt="FreePool">
-        <b>Pool</b>
-        <p>up a land of wild nature, mystical and unexplored. With only 350,000 visitors per year</p>
-    </div>
-
-    <div class="amenities">
-        <img src="images/HotelBar.jpg" alt="HotelBar">
-        <b>Hotel Bar</b>
-        <p>up a land of wild nature, mystical and unexplored. With only 350,000 visitors per year</p>
-    </div>
-</section>
-
-<!-- Section containing some key statistics -->
-<section class="keyStats">
-    <div class="layer">
-        <div class="stats">
-            <img src="images/Traveller.png" alt="TravellerImg">
-            <h2>1,256</h2>
-            <h4>Happy Travellers</h4>
-        </div>
-
-        <div class="stats">
-            <img src="images/EventIcon.png" alt="EventsIcon">
-            <h2>700</h2>
-            <h4>Cheerful events</h4>
-        </div>
-
-        <div class="stats">
-            <img src="images/ShoppingIcon.png" alt="ShoppingIcon">
-            <h2>3,356</h2>
-            <h4>Successful Sales</h4>
-        </div>
-
-        <div class="stats">
-            <img src="images/ShoppingIcon.png" alt="ShoppingIcon">
-            <h2>3,356</h2>
-            <h4>Successful Sales</h4>
-        </div>
-    </div>
-</section>
-
-<!-- Section containing room booking details-->
-<section class="topAmenities">
-    <div class="amenities">
-        <h1>Our</h1>
-        <h1 class="amenities1">Rooms</h1>
-        <p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-            aliquip ex ea commodo consequat</p>
-    </div>
-
-    <div class="roomDetails">
-        <h2>Top Suit</h2>
-        <img src="images/FreeWifi.jpg" alt="FreeWifi">
-        <p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
-        <button>Book</button>
-    </div>
-
-    <div class="roomDetails">
-        <h2>Top Suit</h2>
-        <img src="images/FreePool.jpg" alt="FreePool">
-        <p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
-        <button>Book</button>
-    </div>
-
-    <div class="roomDetails">
-        <h2>Top Suit</h2>
-        <img src="images/HotelBar.jpg" alt="HotelBar">
-        <p>Sensectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet</p>
-        <button>Book</button>
-    </div>
-
-</section>
-
-<!-- Section containing the footer of the website -->
-
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('footer');
-    document.body.appendChild(content.cloneNode(true));
-</script>
-
->>>>>>> erastus
 </body>
 </html>

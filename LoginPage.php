@@ -1,3 +1,31 @@
+<?php
+session_start();
+include "PHP/ecommerce/db.php";
+$username = "";
+$errors = array();
+
+if (isset($_POST['login_submit'])) {
+    $username = mysqli_real_escape_string($conn, $_POST['uname']);
+    $password = mysqli_real_escape_string($conn, $_POST['psw']);
+    echo "<script>console.log(  '$username'  );</script>";
+
+
+    if (count($errors) == 0) {
+        $password = md5($password);
+        $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+        $results = mysqli_query($conn, $query);
+        if (mysqli_num_rows($results) == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: index.php');
+        }else {
+            array_push($errors, "Wrong username/password combination");
+        }
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +35,7 @@
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href="css/HeaderFooter.css" rel="stylesheet" type="text/css">
     <link href="css/LoginPage.css" rel="stylesheet" type="text/css">
+    <meta name="format-detection" content="telephone=no"/>
     <title>LoginPage</title>
 </head>
 <body>
@@ -25,28 +54,30 @@
                 <a href="HomePage.html">Home</a>
                 <a href="GalleryPage.html">Gallery</a>
                 <a href="RoomsPage.html">Rooms</a>
-                <a href="ProductsPage.html">Products</a>
+                <a href="ProductsPage.php">Products</a>
                 <a href="EventsPage.html" id="current">Events</a>
-                <a href="BookingsPage.html" id="bookNow">Book Now</a>
+                <a href="ContactPage.html">Contact</a>
+                <a href="BookingsPage.php" id="bookNow">Book Now</a>
             </nav>
         </div>
     </header>
 
     <!-- Login Section -->
     <section class="login">
-        <form>
+        <form method="post" action="LoginPage.php">
+            <?php include('PHP/errors.php'); ?>
             <div class="imgcontainer">
                 <img src="images/HotelLogo.png" alt="Avatar" class="avatar">
             </div>
 
             <div class="container">
                 <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname" value="<?php echo $username; ?>" required>
 
                 <label><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <button type="submit">Login</button>
+                <button type="submit" name="login_submit">Login</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
                 </label>
@@ -72,7 +103,7 @@
                                                                              alt="facebook"></a>
                     <a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon"
                                                                                     src="images/instagram.png" alt="Instagram"></a>
-                    <button>Contact Us</button>
+                    <button onclick="window.location.href = 'ContactPage.html'">Contact Us</button>
                 </div>
                 <h3>&#0169 2023 by the group 3</h3>
             </div>

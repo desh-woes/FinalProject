@@ -59,9 +59,22 @@ if (isset($_POST['bookFromRoomsPage'])) {
     </div>
 </header>
 
+<!-- Section containing the product page banner -->
+<section class="productBanner">
+        <!--Page title-->
+        <div class="pageTitle">
+            <h1>Book Now</h1>
+        </div>
+
+        <!--Page banner-->
+        <div class="pageImg">
+            <img alt="ProductImg" src="images/book-now.jpg">
+        </div>
+    </section>
+
 <!-- Section containing the booking form -->
 <section class="reservationForm">
-    <form>
+    <div id="form">
         <div class="form-group">
             <h2 class="heading">Booking & contact</h2>
             <div class="controls">
@@ -135,7 +148,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
                     <div class="controls">
                         <i class="fa fa-sort"></i>
                         <h5>Adults</h5>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="adults">
                             <option value="<?php echo $adults; ?>" selected><?php echo $adults; ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -148,7 +161,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Kids</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="kids">
                             <option value="<?php echo $kids; ?>" selected><?php echo $kids; ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -161,7 +174,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Room</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="bathroom">
                             <option value="blank"></option>
                             <option value="deluxe" selected>With Bathroom</option>
                             <option value="Zuri-zimmer">Without Bathroom</option>
@@ -174,7 +187,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Bedding</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="bed">
                             <option value="blank"></option>
                             <option value="single-bed">Zweibett</option>
                             <option value="double-bed" selected>Doppelbett</option>
@@ -191,10 +204,10 @@ if (isset($_POST['bookFromRoomsPage'])) {
                     <textarea name="comments" class="floatLabel" id="comments">I Would like ...</textarea>
                     <!--                    <label for="comments">Comments</label>-->
                 </div>
-                <button type="submit" value="Submit" class="col-1-4">Submit</button>
+                <button  value="Submit" class="col-1-4" onclick="bookNow()"> Submit</button>
             </div>
         </div>
-    </form>
+        </div>
 </section>
 
 <!-- Section containing the footer of the website -->
@@ -226,5 +239,84 @@ if (isset($_POST['bookFromRoomsPage'])) {
         </div>
     </div>
 </footer>
+
+
+<!-- Script to send a http request -->
+<script >
+//  Function to validate the form on the bookings page
+function validate_text2() {
+    let name = document.getElementsByName("name")[0].value;
+    let email= document.getElementsByName("email")[0].value;
+    let phone = document.getElementsByName("phone")[0].value;
+    let arrive = document.getElementsByName("arrive")[0].value;
+    let depart = document.getElementsByName("depart")[0].value;
+
+    // Logic to validate that neither the name box not the email address box is left blank
+    if (name.trim() === "" || email.trim() === ""|| phone.trim() === ""|| arrive.trim() === ""|| depart.trim() === "") {
+        alert("Blank values are not allowed for the Name, email, Phone, Arival and depature categories");
+        return false;
+    }
+}
+
+		
+        function bookNow(){
+            if(validate_text2()){
+            $name = document.getElementsByName("name")[0].value;
+            $email= document.getElementsByName("email")[0].value;
+            $phone = document.getElementsByName("phone")[0].value;
+            $street = document.getElementsByName("street")[0].value;
+            $streetnumber = document.getElementsByName("street-number")[0].value;
+            $city = document.getElementsByName("city")[0].value;
+            $postcode = document.getElementsByName("post-code")[0].value;
+            $country = document.getElementsByName("country")[0].value;
+            $arrive = document.getElementsByName("arrive")[0].value;
+            $depart = document.getElementsByName("depart")[0].value;
+            $adults = document.getElementsByName("adults")[0].value;
+            $kids = document.getElementsByName("kids")[0].value;
+            $comments = document.getElementsByName("comments")[0].value;
+            $bed = document.getElementsByName("bed")[0].value;
+            $bathroom = document.getElementsByName("bathroom")[0].value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var doc = document.getElementById('form');
+                doc.innerHTML = "<h2 id='res'>Thank you for choosing our hotel, your booking was successfully saved</h2>";
+
+                console.log(this.responseText);
+                
+            }
+            else {
+                console.log(this.responseText);
+            }
+        };
+        var data = new FormData();
+        data.append('token', 'webDevGroupTimiErastusOlivierNelson');
+        data.append('tag', 'bookNow');
+        data.append('name', $name);
+        data.append('email',$email);
+        data.append('phone',$phone);
+        data.append('street',$street);
+        data.append('streetnumber',$streetnumber);
+        data.append('city',$city);
+        data.append('postcode',$postcode);
+        data.append('country',$country);
+        data.append('arrive',$arrive);
+        data.append('depart',$depart);
+        data.append('adults',$adults);
+        data.append('kids',$kids);
+        data.append('comments',$comments);
+        data.append('bed',$bed);
+        data.append('bathroom',$bathroom);
+        
+        
+
+        xhttp.open("POST", "PHP/ecommerce/engine.php", true);
+        xhttp.send(data);
+    }
+
+        }
+
+    </script>
 </body>
 </html>

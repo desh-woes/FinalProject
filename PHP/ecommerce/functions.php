@@ -181,4 +181,21 @@ function signUp($username, $password){
 
 }
 
+function bookNow($name, $email, $phone, $street, $streetnumber, $city, $postcode, $country, $arrive, $depart, $adults, $kids, $comments, $bed, $bathroom){
+    include "db.php";
+
+    $stmt = $conn->prepare('INSERT INTO users_ (full_name, email, phone, street, st_number, city,country, post_code, arrive, depart, adults, kids, room, bedding, message)  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+    if (
+        $stmt &&
+		$stmt -> bind_param('sssssssssssssss', $name, $email, $phone, $street, $streetnumber, $city,  $country, $postcode,$arrive, $depart, $adults, $kids,  $bed, $bathroom, $comments)&&
+		$stmt -> execute()
+	) {
+         // user signed up succesfully
+         return 1;
+    } 
+    else{
+        return 0;
+    }
+}
+
 

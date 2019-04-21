@@ -28,7 +28,7 @@
 				<a href="ProductsPage.php">Products</a>
 				<a href="EventsPage.html">Events</a>
 				<a href="ContactPage.html">Contact</a>
-				<a href="BookingsPage.html" id="bookNow">Book Now</a>
+				<a href="BookingsPage.php" id="bookNow">Book Now</a>
 			</nav>
 		</div>
 	</header>
@@ -41,7 +41,7 @@
 	<!-- Section containing the book your stay bar -->
 	<section class="Booking">
 		<h4>Reserve Your Stay</h4>
-		<form id="BookingForm">
+		<form action="BookingsPage.php" method="POST">
 			<label>
 				<h5>Check In</h5>
 				<input type="date" name="CheckIn">
@@ -63,8 +63,9 @@
 					<input type="number" placeholder="0" name="KidsNumber">
 				</label>
 			</div>
+			<button type="submit" name="BookingForm">Book</button>
 		</form>
-		<button type="submit" form="BookingForm">Book</button>
+
 	</section>
 
 	<!-- Section Highlighting top amenities -->

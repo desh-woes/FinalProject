@@ -1,6 +1,5 @@
 <?php
     include "includes/header.php";
-
 ?>
 
     <!-- Section containing the chat area -->

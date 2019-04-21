@@ -31,6 +31,15 @@
 				<a href="EventsPage.php">Events</a>
 				<a id="current" href="ContactPage.php">Contact</a>
 				<a href="BookingsPage.php" id="bookNow">Book Now</a>
+				<?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+            	?>
 			</nav>
 		</div>
 	</header>

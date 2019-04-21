@@ -37,11 +37,51 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
 </head>
 <body>
 <!--Section containing the header, logo and Navigation links-->
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('header');
-    document.body.appendChild(content.cloneNode(true));
-</script>
+<!--Section containing the header, logo and Navigation links-->
+<header>
+    <!-- Div containing the Logo-->
+    <div class="logoImg">
+        <!-- Add vertical line to the Logo-->
+        <hr>
+        <h1>The<br>Bourgeoning<br>Hotel</h1>
+    </div>
+
+    <!-- Navigation links in the header-->
+    <div class="nav">
+        <nav>
+        <a href="HomePage.php">Home</a>
+                <a href="GalleryPage.php">Gallery</a>
+                <a href="RoomsPage.php">Rooms</a>
+                <a href="ProductsPage.php?category=all">Products</a>
+                <a href="EventsPage.php">Events</a>
+                <a href="ContactPage.php">Contact</a>
+                <a href="BookingsPage.php" id="bookNow">Book Now</a>
+                <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+
+            ?>
+        </nav>
+    </div>
+</header>
+
+<!-- Section containing the product page banner -->
+<section class="productBanner">
+    <!--Page title-->
+    <div class="pageTitle">
+        <h1>Booking Page</h1>
+    </div>
+
+    <!--Page banner-->
+    <div class="pageImg">
+        <img alt="ProductImg" src="images/Events.jpg">
+    </div>
+</section>
 
 <!-- Section containing the booking form -->
 <section class="reservationForm">

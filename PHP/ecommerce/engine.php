@@ -125,6 +125,28 @@ if($_POST["token"] == "webDevGroupTimiErastusOlivierNelson"){
             echo json_encode($res);
             break;
     
+        case 'bookNow':
+            $name = $_POST["name"];
+            $email= $_POST["email"];
+            $phone = $_POST["phone"];
+            $street = $_POST["street"];
+            $streetnumber = $_POST["streetnumber"];
+            $city = $_POST["city"];
+            $postcode = $_POST["postcode"];
+            $country = $_POST["country"];
+            $arrive = $_POST["arrive"];
+            $depart = $_POST["depart"];
+            $adults = $_POST["adults"];
+            $kids = $_POST["kids"];
+            $comments = $_POST["comments"];
+            $bed = $_POST["bed"];
+            $bathroom = $_POST["bathroom"];
+
+            $res = bookNow($name, $email, $phone, $street, $streetnumber, $city, $postcode, $country, $arrive, $depart, $adults, $kids, $comments, $bed, $bathroom );
+
+            echo json_encode($res);
+
+            break;
         
         default:
             # code...

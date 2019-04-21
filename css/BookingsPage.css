@@ -1,8 +1,3 @@
-/* Colors */
-body {
-    /*background-color: black;*/
-}
-
 a {
     text-decoration: none;
 }
@@ -12,7 +7,7 @@ a {
     width: 100%;
 }
 
-form {
+#form {
     padding: 4em 10%;
 }
 
@@ -199,4 +194,10 @@ button:hover {
 
 .col-1-8 {
     width: 12.5%;
+}
+
+#res{
+    font-size: 2.5vw;
+    text-align: center;
+    color: rgb(27, 58, 27);
 }

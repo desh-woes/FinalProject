@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <link rel="stylesheet" type="text/css" href="css/ContactPage.css">
+    <link rel="import" href="includes/footerHeader.html">
+    <script src="js/ContactPage.js"></script>
+    <title>ContactPage</title>
+</head>
+<body>
+<!--Section containing the header, logo and Navigation links-->
+<script>
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import.querySelector('header');
+    document.body.appendChild(content.cloneNode(true));
+</script>
+
+<!-- Section containing the product page banner -->
+<section class="productBanner">
+    <!--Page title-->
+    <div class="pageTitle">
+        <h1>Contact Us</h1>
+    </div>
+
+    <!--Page banner-->
+    <div class="pageImg">
+        <img alt="ProductImg" src="images/contactUs.jpg">
+    </div>
+</section>
+
+<!--Contact form section-->
+<section class="Form">
+    <h1>PLEASE CONTACT US HERE</h1>
+    <form id="form1" onsubmit="return validate_text()" method="post">
+        <label>Name:</label>
+        <input id="f_name" type="text" placeholder="Enter your full name"><br><br>
+
+        <label>Email:</label>
+        <input id="e_name" type="Email" name="Email" placeholder="Enter your Email"><br><br>
+
+        <label>Phone:</label>
+        <input type="number" name="Phone" placeholder="Enter your phone number"><br><br>
+
+        <label id="Message">Message:</label>
+        <textarea placeholder="Please write your Message here"></textarea><br><br>
+
+        <button id="form_button" type="submit" form="form1" value="Submit">Send</button>
+    </form>
+</section>
+
+<!-- Section containing the footer of the website -->
+<script>
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import.querySelector('footer');
+    document.body.appendChild(content.cloneNode(true));
+</script>
+</body>
+</html>

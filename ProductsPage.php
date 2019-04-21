@@ -33,7 +33,7 @@ session_start();
 				<a href="HomePage.html">Home</a>
 				<a href="GalleryPage.html">Gallery</a>
 				<a href="RoomsPage.html">Rooms</a>
-				<a id="current" href="ProductsPage.html">Products</a>
+				<a id="current" href="ProductsPage.php?category=all">Products</a>
 				<a href="EventsPage.html">Events</a>
 				<a href="BookingsPage.html" id="bookNow">Book Now</a>
 			</nav>
@@ -65,10 +65,10 @@ session_start();
 		<div class="ourProducts1">
 			<h1>Available Products</h1>
 			<div>
-				<button>All</button>
-				<button>Clothings</button>
-				<button>Food Items</button>
-				<button>Art Work</button>
+				<button onClick="window.location.href='/FinalProject/ProductsPage.php?category=all'">All</button>
+				<button onClick="window.location.href='/FinalProject/ProductsPage.php?category=clothings'">Clothings</button>
+				<button onClick="window.location.href='/FinalProject/ProductsPage.php?category=food_items'">Food Items</button>
+				<button onClick="window.location.href='/FinalProject/ProductsPage.php?category=art_work'">Art Work</button>
 			</div>
 		</div>
 		<hr>
@@ -76,91 +76,6 @@ session_start();
 
 	<!--Product Card segment-->
 	<section id="products-holder" class="gallery_products">
-
-		<!-- <div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Lunch Special</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Lunch Special</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Lunch Special</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Drinks and Beverages</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Drinks and Beverages</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Drinks and Beverages</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Healthy Breakfast</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Healthy Breakfast</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div>
-
-		<div class="card">
-			<img src="images/addProduct.jpg">
-			<h1>Healthy Breakfast</h1>
-			<p class="price">$19.99</p>
-			<p>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in,
-				diam. Sed arcu. Cras consequat.</p>
-			<p><button>Add to Cart</button></p>
-		</div> -->
-
 	</section>
 
 	<!-- Pagination section -->
@@ -216,7 +131,7 @@ session_start();
 
 		// window.onload()
 
-		function getProducts() {
+		function getProducts(category) {
 			// alert("loaded");
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function () {
@@ -229,7 +144,7 @@ session_start();
 					for (var x = 0; x < jsonData.length; x++) {
 						console.log(jsonData);
 
-						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><p>'+jsonData[x].desc+'</p><p><button onclick="contactSeller()">Contact Seller</button></p></div>';
+						var newChild = '<div class="card"><img src="images/addProduct.jpg"><h1>'+jsonData[x].name+'</h1><p class="price">$'+jsonData[x].price+'</p><br><p>Category: '+jsonData[x].category+'</p><p>'+jsonData[x].desc+'</p><p><button onclick="contactSeller(3)">Contact Seller</button></p></div>';
 						productHolder.insertAdjacentHTML('beforeend', newChild);
 
 					}
@@ -241,9 +156,12 @@ session_start();
 					// alert("not connected yet");
 				}
 			};
+			var cat = "<?php echo $_GET['category']; ?>";
+			// alert(cat);
 			var data = new FormData();
 			data.append('token', 'webDevGroupTimiErastusOlivierNelson');
 			data.append('tag', 'getProducts');
+			data.append('category', cat);
 
 			xhttp.open("POST", "PHP/ecommerce/engine.php", true);
 			xhttp.send(data);
@@ -253,9 +171,9 @@ session_start();
 
 
 
-		function contactSeller(){
+		function contactSeller(sellerId){
 			
-			window.location.href = "ChatRoom.php";
+			window.location.href = "ChatRoom.php?seller="+sellerId;
 		}
 
 	</script>

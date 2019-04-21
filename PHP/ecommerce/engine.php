@@ -19,14 +19,25 @@ include "functions.php";
 
 // echo $_POST["token"];
 //check to see if our web app is the one sending the request
-if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
+if($_POST["token"] == "webDevGroupTimiErastusOlivierNelson"){
 
 
     $tag = $_POST['tag'];
 
     switch ($tag) {
         case 'getProducts':
-            $res = getProducts();
+
+            $res = "";
+            
+            if($_POST['category'] == "all"){
+                $res  = getAllProducts();
+              
+            }
+            else{
+                $res = getProducts($_POST['category']);
+
+            }
+            
 
             echo json_encode($res);
         
@@ -74,7 +85,7 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             echo json_encode($res);
 
             break;
-
+ 
         case 'addChat':
             $sender = $_POST['sender'];
             $receiver = $_POST['receiver'];

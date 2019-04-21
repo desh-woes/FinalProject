@@ -2,24 +2,57 @@
 
 include "db.php";
 
-function getProducts(){
+
+function getAllProducts(){
     include "db.php";
+
     $return_arr = array();
-    $query = "select * from products";
 
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)  > 0){
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row_array['id'] = $row['product_id'];
-            $row_array['name'] = $row['product_name'];
-            $row_array['price'] = $row['product_price'];
-            $row_array['desc'] = $row['description'];
-        
-            array_push($return_arr,$row_array);
-           }
+    $stmt = $mysqli->prepare("SELECT * FROM products");
+    // $stmt->bind_param("si", $category, 1);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows === 0) exit('No rows');
+    while($row = $result->fetch_assoc()) {
+    $row_array['id'] = $row['product_id'];
+    $row_array['name'] = $row['product_name'];
+    $row_array['price'] = $row['product_price'];
+    $row_array['desc'] = $row['description'];
+    $row_array['category'] = $row['product_category'];
+    $row_array['seller_id'] = $row['seller_id'];
+
+
+    array_push($return_arr,$row_array);
     }
+    // var_export($ages);
+    $stmt->close();
+    return $return_arr;
+}
 
-    mysqli_close($conn);
+
+function getProducts($category){
+    include "db.php";
+
+    $return_arr = array();
+
+    $stmt = $mysqli->prepare("SELECT * FROM products WHERE product_category = ?");
+    $stmt->bind_param("s", $category);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($result->num_rows === 0) exit('No rows');
+    while($row = $result->fetch_assoc()) {
+    $row_array['id'] = $row['product_id'];
+    $row_array['name'] = $row['product_name'];
+    $row_array['price'] = $row['product_price'];
+    $row_array['desc'] = $row['description'];
+    $row_array['category'] = $row['product_category'];
+    $row_array['seller_id'] = $row['seller_id'];
+
+
+    array_push($return_arr,$row_array);
+    }
+    // var_export($ages);
+    $stmt->close();
     return $return_arr;
 }
 
@@ -36,6 +69,7 @@ function displayChats(){
             $row_array['receiver'] = $row['receiver'];
             $row_array['message'] = $row['message'];
             $row_array['date'] = $row['date'];
+            
         
             array_push($return_arr,$row_array);
            }

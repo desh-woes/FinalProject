@@ -1,8 +1,21 @@
 <?php
+session_start();
+include "PHP/ecommerce/db.php";
+$errors = array();
+
 $arriveDate = "";
 $departDate = "";
 $adults = 0;
 $kids = 0;
+$name = "";
+$email = "";
+$phone = "";
+$street = "";
+$st_number = "";
+$city = "";
+$country = "";
+$post_code = "";
+$message = "";
 if (isset($_POST['BookingFormFromHomePage'])) {
     $arriveDate = $_POST['CheckIn'];
     $departDate = $_POST['CheckOut'];
@@ -16,6 +29,48 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
     $adults = $_POST['AdultsNumber'];
     $kids = $_POST['KidsNumber'];
 }
+if (isset($_POST['submitBookingsPage'])) {
+    $arriveDate = mysqli_real_escape_string($conn, $_POST['arrive']);
+    $departDate = mysqli_real_escape_string($conn, $_POST['depart']);
+    $adults = mysqli_real_escape_string($conn, $_POST['adults']);
+    $kids = mysqli_real_escape_string($conn, $_POST['kids']);
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $street = mysqli_real_escape_string($conn, $_POST['street']);
+    $st_number = mysqli_real_escape_string($conn, $_POST['street-number']);
+    $city = mysqli_real_escape_string($conn, $_POST['city']);
+    $country = mysqli_real_escape_string($conn, $_POST['country']);
+    $post_code = mysqli_real_escape_string($conn, $_POST['post-code']);
+    $message = mysqli_real_escape_string($conn, $_POST['comments']);
+    $room = mysqli_real_escape_string($conn, $_POST['room']);
+    $bedding = mysqli_real_escape_string($conn, $_POST['bedding']);
+
+    $user_check_query = "SELECT * FROM users WHERE  email='$email' LIMIT 1";
+    $result = mysqli_query($conn, $user_check_query);
+    $user = mysqli_fetch_assoc($result);
+
+    if ($user) { // if user's email exists
+        if ($user['email'] === $email) {
+            array_push($errors, "email already exists");
+        }
+    }
+
+    if (count($errors) == 0) {
+
+        $query = "INSERT INTO hotels.usersTable (full_name,email,phone,street,st_number,city,country,post_code,arrive,depart,adults,kids,room,bedding,message) 
+  			  VALUES('$name','$email','$phone', '$street', '$st_number','$city','$country','$post_code','$arriveDate','$departDate','$adults','$kids','$room','$bedding','$message')";
+        mysqli_query($conn, $query);
+        if($query){
+            array_push($errors, "Not Done");
+        }
+        $_SESSION['success'] = "Your Details have been registered";
+        echo 'success';
+//        header('location: RoomsPage.html');
+        include 'PHP/errors.php';
+    }
+}
+
 
 ?>
 
@@ -43,7 +98,8 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
 
 <!-- Section containing the booking form -->
 <section class="reservationForm">
-    <form>
+    <form action="BookingsPage.php" method="post">
+        <?php  include 'PHP/errors.php';?>
         <div class="form-group">
             <h2 class="heading">Booking & contact</h2>
             <div class="controls">
@@ -117,7 +173,7 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
                     <div class="controls">
                         <i class="fa fa-sort"></i>
                         <h5>Adults</h5>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="adults">
                             <option value="<?php echo $adults; ?>" selected><?php echo $adults; ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -130,7 +186,7 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Kids</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="kids">
                             <option value="<?php echo $kids; ?>" selected><?php echo $kids; ?></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -143,7 +199,7 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Room</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="room">
                             <option value="blank"></option>
                             <option value="deluxe" selected>With Bathroom</option>
                             <option value="Zuri-zimmer">Without Bathroom</option>
@@ -156,7 +212,7 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
                     <div class="controls">
                         <h5>Bedding</h5>
                         <i class="fa fa-sort"></i>
-                        <select class="floatLabel">
+                        <select class="floatLabel" name="bedding">
                             <option value="blank"></option>
                             <option value="single-bed">Zweibett</option>
                             <option value="double-bed" selected>Doppelbett</option>
@@ -173,7 +229,7 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
                     <textarea name="comments" class="floatLabel" id="comments">I Would like ...</textarea>
                     <!--                    <label for="comments">Comments</label>-->
                 </div>
-                <button type="submit" value="Submit" class="col-1-4">Submit</button>
+                <button type="submit" value="Submit" class="col-1-4" name="submitBookingsPage">Submit</button>
             </div>
         </div>
     </form>

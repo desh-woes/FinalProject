@@ -3,7 +3,7 @@ $arriveDate = "";
 $departDate = "";
 $adults = 0;
 $kids = 0;
-if (isset($_POST['BookingForm'])) {
+if (isset($_POST['BookingFormFromHomePage'])) {
     $arriveDate = $_POST['CheckIn'];
     $departDate = $_POST['CheckOut'];
     $adults = $_POST['AdultsNumber'];
@@ -12,7 +12,7 @@ if (isset($_POST['BookingForm'])) {
     echo $kids;
 }
 
-if (isset($_POST['bookFromRoomsPage'])) {
+if (isset($_POST['BookFormFromRoomsPage'])) {
     $arriveDate = $_POST['CheckIn'];
     $departDate = $_POST['CheckOut'];
     $adults = $_POST['AdultsNumber'];

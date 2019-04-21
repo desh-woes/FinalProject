@@ -1,4 +1,5 @@
 <?php
+session_start();
 $arriveDate = "";
 $departDate = "";
 $adults = 0;

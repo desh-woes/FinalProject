@@ -1,33 +1,50 @@
-
-
-<?php
-
-    include "includes/header.php";
-
+<?php 
+session_start();
 ?>
-<!-- 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Add Products</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet'
-          type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
     <link rel="stylesheet" type="text/css" href="css/AddProduct.css">
     <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
-    <link rel="import" href="includes/footerHeader.html">
+    <title>Add Products</title>
 </head>
-
 <body>
+    <!--Section containing the header, logo and Navigation links-->
+    <header>
+        <!-- Div containing the Logo-->
+        <div class="logoImg">
+            <!-- Add vertical line to the Logo-->
+            <hr>
+            <h1>The<br>Bourgeoning<br>Hotel</h1>
+        </div>
 
-<script>
-    var link = document.querySelector('link[rel="import"]');
-    var content = link.import.querySelector('header');
-    document.body.appendChild(content.cloneNode(true));
-</script> -->
+        <!-- Navigation links in the header-->
+        <div class="nav">
+            <nav>
+                <a href="HomePage.php">Home</a>
+                <a href="GalleryPage.php">Gallery</a>
+                <a href="RoomsPage.php">Rooms</a>
+                <a id="current" href="ProductsPage.php?category=all">Products</a>
+                <a href="EventsPage.php">Events</a>
+                <a href="ContactPage.php">Contact</a>
+                <a href="BookingsPage.php" id="bookNow">Book Now</a>
+                <?php  
+                    if(isset($_SESSION['username'])){
+                        echo ' <a href="LogoutPage.php" >Logout</a>';
+                    }
+
+                    else{
+                        echo ' <a href="LoginPage.php" >Login</a>';
+                    }
+                ?>
+            </nav>
+        </div>
+    </header>
 
 <!-- Section containing the product page banner -->
 <section class="productBanner">

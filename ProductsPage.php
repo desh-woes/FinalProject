@@ -66,7 +66,10 @@ session_start();
 
 	<!-- Section containing the Our products segment and the available products segment -->
 	<section class="ourProducts">
-		<h1>Our Products</h1>
+		<div class="ourProducts1">
+			<h1>Our Products</h1>	
+			<button onclick="window.location.href= 'MerchantChatHistory.php'">Show Chat</button>
+		</div>
 		<hr>
 		<p>At the Bourgeoning, we give a chance for our clients to sell their goods on our platform. Do you have foreign
 			merchandise? are you willing to sell them? leverage our platform!</p>
@@ -90,7 +93,7 @@ session_start();
 	</section>
 
 	<!-- Pagination section -->
-	<section class="pagination">
+	<!-- <section class="pagination">
 		<a href="#">&laquo;</a>
 		<a href="#">1</a>
 		<a class="active" href="#">2</a>
@@ -99,11 +102,11 @@ session_start();
 		<a href="#">5</a>
 		<a href="#">6</a>
 		<a href="#">&raquo;</a>
-	</section>
+	</section> -->
 
 	<!-- Button to prompt the user to add products -->
 	<div id="addButton">
-		<button onclick="window.location.href = 'AddProductsPage.html'">Add New Products</button>
+		<button onclick="window.location.href = 'AddProductsPage.php'">Add New Products</button>
 	</div>
 
 	<!-- Section containing the footer of the website -->

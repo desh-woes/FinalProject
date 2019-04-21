@@ -124,29 +124,29 @@
 }
 
 /* Styling for the navidation bar at the buttom of the page*/
-.pagination {
+/*.pagination {
     display: flex;
     width: 40%;
     margin: 0 auto;
     padding-bottom: 30px;
-}
+}*/
 
 /* Styling for the navidation bar at the buttom of the page*/
-.pagination a {
+/*.pagination a {
     color: black;
     padding: 8px 16px;
     text-decoration: none;
     margin: 0 auto;
-}
+}*/
 
 /* Styling for the navidation bar at the buttom of the page*/
-.pagination a.active {
+/*.pagination a.active {
     background-color: #B22222;
     color: white;
-}
+}*/
 
 /* Styling for the navidation bar at the buttom of the page*/
-.pagination a:hover:not(.active) {background-color: #ddd;}
+/*.pagination a:hover:not(.active) {background-color: #ddd;}*/
 
 /*Styling for the Add products button*/
 #addButton button{
@@ -161,5 +161,7 @@
 /*Styling for the Add products button*/
 #addButton{
     width: fit-content;
-    margin: 0 auto;
+    margin: 15px auto 0;
+    position: relative;
+    top: 15px;
 }

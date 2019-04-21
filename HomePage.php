@@ -35,6 +35,7 @@ session_start();
                 <a href="RoomsPage.php">Rooms</a>
                 <a  href="ProductsPage.php?category=all">Products</a>
                 <a href="EventsPage.php">Events</a>
+                <a href="ContactPage.php">Contact</a>
                 <a href="BookingsPage.php" id="bookNow">Book Now</a>
                <?php  
                     if(isset($_SESSION['username'])){

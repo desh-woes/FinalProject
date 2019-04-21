@@ -276,10 +276,6 @@ function showChats($username){
         
         $return_arr = array();
 
-
-        SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
-FROM Orders
-INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
         $stmt = $mysqli->prepare("SELECT * FROM chats WHERE receiver = ?");
         $stmt->bind_param("s", $category);
         $stmt->execute();

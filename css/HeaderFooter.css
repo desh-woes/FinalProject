@@ -50,6 +50,10 @@ header{
 	margin: 0 auto;
 	align-items: center;
 }
+.nav a:hover{
+	color:black;
+}
+
 
 /*Styling for the link texts in the navigation bar*/
 nav a{

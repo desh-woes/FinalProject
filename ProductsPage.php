@@ -14,33 +14,17 @@ session_start();
           type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
     <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
-    <link rel="import" href="includes/footer.html">
+    <link rel="import" href="includes/footerHeader.html">
     <title>Products Page</title>
 </head>
 
 <body onload="getProducts()">
 <!--Section containing the header, logo and Navigation links-->
-<header>
-    <!-- Div containing the Logo-->
-    <div class="logoImg">
-        <!-- Add vertical line to the Logo-->
-        <hr>
-        <h1>The<br>Bourgeoning<br>Hotel</h1>
-    </div>
-
-    <!-- Navigation links in the header-->
-    <div class="nav">
-        <nav>
-            <a href="HomePage.html">Home</a>
-            <a href="GalleryPage.html">Gallery</a>
-            <a href="RoomsPage.html">Rooms</a>
-            <a id="current" href="ProductsPage.html">Products</a>
-            <a href="EventsPage.html">Events</a>
-            <a href="ContactPage.html">Contact</a>
-            <a href="BookingsPage.php" id="bookNow">Book Now</a>
-        </nav>
-    </div>
-</header>
+<script>
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import.querySelector('header');
+    document.body.appendChild(content.cloneNode(true));
+</script>
 
 <!-- Section containing the product page banner -->
 <section class="productBanner">

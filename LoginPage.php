@@ -36,32 +36,16 @@ if (isset($_POST['login_submit'])) {
           type='text/css'>
     <link href="css/HeaderFooter.css" rel="stylesheet" type="text/css">
     <link href="css/LoginPage.css" rel="stylesheet" type="text/css">
-    <link rel="import" href="includes/footer.html">
+    <link rel="import" href="includes/footerHeader.html">
     <title>LoginPage</title>
 </head>
 <body>
 <!--Section containing the header, logo and Navigation links-->
-<header>
-    <!-- Div containing the Logo-->
-    <div class="logoImg">
-        <!-- Add vertical line to the Logo-->
-        <hr>
-        <h1>The<br>Bourgeoning<br>Hotel</h1>
-    </div>
-
-    <!-- Navigation links in the header-->
-    <div class="nav">
-        <nav>
-            <a href="HomePage.html">Home</a>
-            <a href="GalleryPage.html">Gallery</a>
-            <a href="RoomsPage.html">Rooms</a>
-            <a href="ProductsPage.php">Products</a>
-            <a href="EventsPage.html" id="current">Events</a>
-            <a href="ContactPage.html">Contact</a>
-            <a href="BookingsPage.php" id="bookNow">Book Now</a>
-        </nav>
-    </div>
-</header>
+<script>
+    var link = document.querySelector('link[rel="import"]');
+    var content = link.import.querySelector('header');
+    document.body.appendChild(content.cloneNode(true));
+</script>
 
 <!-- Login Section -->
 <section class="login">

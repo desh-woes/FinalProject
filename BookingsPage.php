@@ -32,6 +32,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
           type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
     <link rel="stylesheet" type="text/css" href="css/BookingsPage.css">
+    <meta name="format-detection" content="telephone=no"/>
     <title>ReserveRoom</title>
 </head>
 <body>
@@ -209,7 +210,7 @@ if (isset($_POST['bookFromRoomsPage'])) {
                                                                          alt="facebook"></a>
                 <a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon" src="images/instagram.png"
                                                                                 alt="Instagram"></a>
-                <button>Contact Us</button>
+                <button onclick="window.location.href = 'ContactPage.html'">Contact Us</button>
             </div>
             <h3>&#0169 2023 by the group 3</h3>
         </div>

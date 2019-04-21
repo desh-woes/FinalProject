@@ -35,6 +35,7 @@ if (isset($_POST['login_submit'])) {
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href="css/HeaderFooter.css" rel="stylesheet" type="text/css">
     <link href="css/LoginPage.css" rel="stylesheet" type="text/css">
+    <meta name="format-detection" content="telephone=no"/>
     <title>LoginPage</title>
 </head>
 <body>
@@ -102,7 +103,7 @@ if (isset($_POST['login_submit'])) {
                                                                              alt="facebook"></a>
                     <a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon"
                                                                                     src="images/instagram.png" alt="Instagram"></a>
-                    <button>Contact Us</button>
+                    <button onclick="window.location.href = 'ContactPage.html'">Contact Us</button>
                 </div>
                 <h3>&#0169 2023 by the group 3</h3>
             </div>

@@ -3,6 +3,11 @@ body{
 	margin: 0 auto;
 }
 
+/*Styling to remove link underlines across browsers*/
+a{
+    text-decoration: none;
+}
+
 /*Styling for the header container itself. The header contians the navigation links and the brand logo*/
 header{
 	height: 100px;
@@ -49,6 +54,7 @@ header{
 	flex-direction: row;
 	margin: 0 auto;
 	align-items: center;
+    text-decoration: none;
 }
 
 /*Styling for the link texts in the navigation bar*/

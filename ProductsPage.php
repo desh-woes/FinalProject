@@ -15,6 +15,8 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
 	<link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
 	<title>Products Page</title>
+	<meta name="format-detection" content="telephone=no"/>
+
 </head>
 
 <body onload="getProducts()">
@@ -33,7 +35,7 @@ session_start();
 				<a href="HomePage.html">Home</a>
 				<a href="GalleryPage.html">Gallery</a>
 				<a href="RoomsPage.html">Rooms</a>
-				<a id="current" href="ProductsPage.html">Products</a>
+				<a id="current" href="ProductsPage.php">Products</a>
 				<a href="EventsPage.html">Events</a>
 				<a href="ContactPage.html">Contact</a>
 				<a href="BookingsPage.php" id="bookNow">Book Now</a>
@@ -194,7 +196,7 @@ session_start();
 							alt="facebook"></a>
 					<a href="https://www.instagram.com/?hl=en" target="_blank"><img class="icon"
 							src="images/instagram.png" alt="Instagram"></a>
-					<button>Contact Us</button>
+					<button onclick="window.location.href = 'ContactPage.html'">Contact Us</button>
 				</div>
 				<h3>&#0169 2023 by the group 3</h3>
 			</div>

@@ -1,7 +1,11 @@
-<?php
-session_start();
-?>
 
+
+<?php
+
+    include "includes/header.php";
+
+?>
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +22,12 @@ session_start();
 </head>
 
 <body>
-<!--Section containing the header, logo and Navigation links-->
+
 <script>
     var link = document.querySelector('link[rel="import"]');
     var content = link.import.querySelector('header');
     document.body.appendChild(content.cloneNode(true));
-</script>
+</script> -->
 
 <!-- Section containing the product page banner -->
 <section class="productBanner">

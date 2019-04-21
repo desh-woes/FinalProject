@@ -24,13 +24,13 @@
         <!-- Navigation links in the header-->
         <div class="nav">
             <nav>
-                <a href="HomePage.html">Home</a>
-                <a href="GalleryPage.html">Gallery</a>
-                <a href="RoomsPage.html">Rooms</a>
-                <a href="ProductsPage.php">Products</a>
-                <a href="EventsPage.html" id="current">Events</a>
-                <a href="ContactPage.html">Contact</a>
-                <a href="BookingsPage.php" id="bookNow">Book Now</a>
+            <a href="HomePage.php">Home</a>
+				<a href="GalleryPage.php">Gallery</a>
+				<a href="RoomsPage.php">Rooms</a>
+				<a href="ProductsPage.php?category=all">Products</a>
+				<a href="EventsPage.php">Events</a>
+				<a id="current" href="ContactPage.php">Contact</a>
+				<a href="BookingsPage.php" id="bookNow">Book Now</a>
             </nav>
         </div>
     </header>

@@ -1,5 +1,10 @@
 <?php 
 session_start();
+
+if(!isset($_SESSION['username'])){
+    header('Location: HomePage.php');
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +19,11 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/ChatRoom.css">
     <link rel="stylesheet" type="text/css" href="css/LoginPage.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="css/HeaderFooter.css">
+    <link rel="stylesheet" type="text/css" href="css/AddProduct.css">
+    <link rel="stylesheet" type="text/css" href="css/ProductsPage.css">
+    <link rel="import" href="includes/footerHeader.html">
 </head>
 <body onload="loadPreviousChats()">
     <!--Section containing the header, logo and Navigation links-->
@@ -29,11 +39,11 @@ session_start();
         <div class="nav">
             <nav>
                 <a href="HomePage.php">Home</a>
-                <a href="GalleryPage.html">Gallery</a>
-                <a href="RoomsPage.html">Rooms</a>
-                <a id="current" href="ProductsPage.html">Products</a>
-                <a href="EventsPage.html">Events</a>
-                <a href="BookingsPage.html" id="bookNow">Book Now</a>
+                <a href="GalleryPage.php">Gallery</a>
+                <a href="RoomsPage.php">Rooms</a>
+                <a id="current" href="ProductsPage.php?category=all">Products</a>
+                <a href="EventsPage.php">Events</a>
+                <a href="BookingsPage.php" id="bookNow">Book Now</a>
                <?php  
                     if(isset($_SESSION['username'])){
                         echo ' <a href="LogoutPage.php" >Logout</a>';

@@ -235,7 +235,7 @@ function addProduct($productId, $name, $price, $desc, $categ ){
 function signUp($username, $password){
     include "db.php";
 
-    $stmt = $conn->prepare('INSERT INTO users (user_name, password) VALUES(?,?)');
+    $stmt = $conn->prepare('INSERT INTO users (username, password) VALUES(?,?)');
     $password = md5($password);
     if (
         $stmt &&

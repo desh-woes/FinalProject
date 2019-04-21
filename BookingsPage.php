@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 $arriveDate = "";
 $departDate = "";
 $adults = 0;
@@ -70,18 +72,19 @@ if (isset($_POST['BookFormFromRoomsPage'])) {
     </div>
 </header>
 
-<!-- Section containing the product page banner -->
+<!-- Section containing the product page banner
 <section class="productBanner">
     <!--Page title-->
-    <div class="pageTitle">
+    <!-- <div class="pageTitle">
         <h1>Booking Page</h1>
-    </div>
+    </div> -->
 
     <!--Page banner-->
-    <div class="pageImg">
+    <!-- <div class="pageImg">
         <img alt="ProductImg" src="images/Events.jpg">
     </div>
-</section>
+</section>  -->
+
 
 <!-- Section containing the product page banner -->
 <section class="productBanner">
@@ -280,10 +283,17 @@ function validate_text2() {
         alert("Blank values are not allowed for the Name, email, Phone, Arival and depature categories");
         return false;
     }
+    return true;
 }
 
 		
         function bookNow(){
+            var isLoggedIn = <?php  echo $login = isset($_SESSION['username']) ? 1:0; ?>;
+
+            if(isLoggedIn == 0){
+                alert("You need to be logged in to make a reservation");
+            }
+            else{
             if(validate_text2()){
             $name = document.getElementsByName("name")[0].value;
             $email= document.getElementsByName("email")[0].value;
@@ -338,6 +348,7 @@ function validate_text2() {
         xhttp.open("POST", "PHP/ecommerce/engine.php", true);
         xhttp.send(data);
     }
+}
 
         }
 

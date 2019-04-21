@@ -66,7 +66,10 @@ session_start();
 
 	<!-- Section containing the Our products segment and the available products segment -->
 	<section class="ourProducts">
-		<h1>Our Products</h1>
+		<div class="ourProducts1">
+			<h1>Our Products</h1>	
+			<button onclick="window.location.href= 'MerchantChatHistory.php'">Show Chat</button>
+		</div>
 		<hr>
 		<p>At the Bourgeoning, we give a chance for our clients to sell their goods on our platform. Do you have foreign
 			merchandise? are you willing to sell them? leverage our platform!</p>

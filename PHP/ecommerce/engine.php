@@ -87,18 +87,28 @@ if(isset($_POST["token"]) == "webDevGroupTimiErastusOlivierNelson"){
             $desc = $_POST['productDescription'];
             $categ = $_POST['categories'];
             $price = $_POST['Price'];
-            echo "Some";
 
             $res = addProduct($productID, $name, $price, $desc, $categ);
 
             echo json_encode($res);
 
             break;
+
+        case 'signUp':
+            $username= $_POST['uname'];
+            $password = $_POST['psw'];
+            // echo($username ." " .$password);
+    
+            $res = signUp($username, $password);
+            echo json_encode($res);
+            break;
+    
         
         default:
             # code...
             break;
     }
+
 }
 
 ?>
